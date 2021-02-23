@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* LOGIN CSS */
+
+/* Font LIBs */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.error {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px!important;
+    color: #C80003!important;
+    margin-bottom: 7px!important;
+}
+
+.contentWrap {
+    width: calc(100% - 20px);
+    max-width: 300px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    background-color: rgba(0,0,0,0.00);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: #262626;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #000000 !important;
+}
+
+*::placeholder {
+    color: #3e3e3e
+}
+
+.loginCont {
+    background-color: #B5B5B5;
+    width: calc(100% - 50px);
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 7px;
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 0 0 15px 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30px;
+    color: #000000 !important;
+}
+
+p, a {
+    color: #000000;
+    font-size: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+label {
+    color: #000000;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-right: 50%;
+}
+
+#loginImg img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+input[type=text],
+input[type=password],
+input,
+textarea{
+    width: calc(100% - 14px);
+    max-width: 250px;
+    padding: 7px;
+    border: none;
+    background-color: #DEDEDE;
+    border-bottom: 2px solid #818181;
+    margin-bottom: 7px;
+    color: #353535 !important;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input:hover{
+    cursor: text;
+}
+
+input[type=checkbox] {
+    display: inline-block;
+    width: auto!important;
+    margin-right: 5px;
+}
+
+button[type=submit] {
+    width: 100px;
+    padding: 7px;
+    border: none;
+    background-color: #785932;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #f1f1f1!important;
+}
+
+button[type=submit]:hover {
+    background-color: #9A7E5C;
+    cursor: pointer;
+}
+
+button[type=submit]:active {
+    background-color: #55412A;
+    cursor: pointer;
+}
