@@ -2,20 +2,24 @@
 
 return [
     //HOME
-    'previewtext_home' => 'Motto here.',
     'perf_title' => 'RECENT PERFORMANCES',
+    'previewtext_home' => 'The official performing arts group of Regional Lead School for the Arts in Angono',
 
     //SHOWS
     'previewtitle_show' => 'OUR PERFORMANCES',
-    'previewtext_show' => 'Performances that are carefully crafted to perfection.',
+    'previewtext_show' => 'Contemporary experiments and explorations in dance, music, and theatre.',
     'show_title' => 'COMPLETE CATALOGUE',
 
     //SHOW
-    'trailer' => 'TRAILER',
+    'trailer' => 'VIDEO',
+    'desc' => 'DESCRIPTION',
+    'credits' => 'CREDITS',
+    'access' => 'ACCESS THE SHOW',
+    'no_access' => 'SHOW UNAVAILABLE',
 
     //DIRECTORY
     'previewtitle_dir' => 'ARTIST DIRECTORY',
-    'previewtext_dir' => "Meet the people who create experiences you won't forget.",
+    'previewtext_dir' => "The people who create experiences.",
     'search_by_dept' => 'SEARCH BY ARTIST',
 
     'dance' => 'DANCE',

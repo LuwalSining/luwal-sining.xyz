@@ -13,7 +13,7 @@
 
 .contentWrap {
     width: calc(100% - 20px);
-    max-width: 300px;
+    max-width: 320px;
     margin: 0 auto;
     overflow-x: hidden;
     background-color: rgba(0,0,0,0.00);
@@ -44,7 +44,7 @@ body {
 .loginCont {
     background-color: #B5B5B5;
     width: calc(100% - 50px);
-    max-width: 300px;
+    max-width: 310px;
     padding: 20px;
     border-radius: 7px;
     margin-top: 80px;
@@ -80,7 +80,8 @@ label {
 input[type=text],
 input[type=password],
 input,
-textarea{
+textarea,
+select {
     width: calc(100% - 14px);
     max-width: 250px;
     padding: 7px;
@@ -89,6 +90,16 @@ textarea{
     border-bottom: 2px solid #818181;
     margin-bottom: 7px;
     color: #353535 !important;
+}
+
+select {
+    width: 100%!important;
+}
+
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input::placeholder {
+    color: #5A5A5A;
 }
 
 input[type=text]:hover,
@@ -101,6 +112,11 @@ input[type=checkbox] {
     display: inline-block;
     width: auto!important;
     margin-right: 5px;
+}
+
+label {
+    margin-bottom: 5px!important;
+    display: inline-block;
 }
 
 button[type=submit] {
@@ -121,4 +137,17 @@ button[type=submit]:hover {
 button[type=submit]:active {
     background-color: #55412A;
     cursor: pointer;
+}
+
+button#toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* Media query isn't shown here. */
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0;
+    /* Display at the top right of the container */
+    display: inline;
+    text-align: right;
 }

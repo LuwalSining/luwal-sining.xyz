@@ -7,11 +7,14 @@ return [
 
     //SHOWS
     'previewtitle_show' => '作品',
-    'previewtext_show' => 'ちゃんと作った作品。',
+    'previewtext_show' => '踊りと音楽と演劇の新実験と新研究の作品。',
     'show_title' => '全部作品',
 
     //SHOW
     'trailer' => 'トレーラー',
+    'desc' => '説明',
+    'credits' => '作者リスト',
+    'access' => '出演に行く',
 
     //DIRECTORY
     'previewtitle_dir' => '作者の名鑑',

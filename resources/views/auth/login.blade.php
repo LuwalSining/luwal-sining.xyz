@@ -27,11 +27,17 @@
             <form id="signupForm" action="{{ route('login.create') }}" method="post">
                 @csrf
 
-                <input type="text" name="email" placeholder="E-mail" autofocus required>
-                <input type="password" name="password" placeholder="Password" required>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" name="email" placeholder="E-mail" autofocus required>
+                <section>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="Password" required>
+                </section>
                 <input type="checkbox" name="remember"><label>Remember Me</label>
                 <button type="submit" name="login">LOG IN</button>
             </form>
+            <br>
+            <a href="{{ route('register') }}">Don't have an account yet? Sign Up!</a>
         </div>
     </div>
 

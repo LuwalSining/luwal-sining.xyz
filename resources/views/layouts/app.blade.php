@@ -25,10 +25,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- OPENGRAPH -->
-    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://luwalsining.org" />
-    <meta property="og:title" content="Luwal Sining-Panggap" />
 
 </head>
 
@@ -72,8 +70,8 @@
 <footer>
     <div class="textWrap">
         <div class="varLinks">
-            <a href="privacy-policy.php"><p>{{ __('def.privpol') }}</p></a>
-            <a href="terms-of-use.php"><p>{{ __('def.tos') }}</p></a>
+            <a href="#"><p>{{ __('def.privpol') }}</p></a>
+            <a href="#"><p>{{ __('def.tos') }}</p></a>
             <div class="socials">
                 <div class="socialsCont">
                     <a class="fab fa-facebook-square" style="font-size: 24px;" href="https://facebook.com/luwaLSP" target="_blank"></a>

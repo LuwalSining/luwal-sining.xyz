@@ -36,7 +36,7 @@
 <header class="mdc-elevation--z3">
 
     <div class="headerWrap">
-        <a href="./">
+        <a href="{{ route('dashboard') }}">
             <div id="headerImg">
                 <img src="{{ asset('img/luwal_logo.png') }}" alt="luwal_logo" class="mdc-elevation--z4">
             </div>
@@ -55,13 +55,16 @@
 <div class="navBar">
     <div class="navCont">
         <div>
-            <a class="bu1 material-icons " title="HOME" data-mdc-ripple-is-unbounded="true" href="{{ route('dashboard') }}">home</a>
+            <a class="bu1 material-icons " title="HOME" data-mdc-ripple-is-unbounded="true" href="{{ route('dashboard') }}">dashboard</a>
         </div>
+        @if(auth()->user()->isUpload == 1)
+            <div>
+                <a class="bu3 material-icons " title="EDIT SHOW LIST" data-mdc-ripple-is-unbounded="true" href="{{ route('perf') }}">library_books</a>
+            </div>
+        @else
+        @endif
         <div>
-            <a class="bu2 material-icons " title="DATABASE" data-mdc-ripple-is-unbounded="true" href="../../../../phpmyadmin">storage</a>
-        </div>
-        <div>
-            <a class="bu3 material-icons " title="LOGOUT" data-mdc-ripple-is-unbounded="true" href="{{ route('logout') }}">exit_to_app</a>
+            <a class="bu3 material-icons " title="LOGOUT" data-mdc-ripple-is-unbounded="true" href="{{ route('logout') }}">logout</a>
         </div>
         <div>
             <p class="bu4 material-icons" onClick="mCh()" id="69420desu" title="SITE SETTINGS" data-mdc-ripple-is-unbounded="true">settings</p>
@@ -78,7 +81,7 @@
             <g class="profile_span">Edit Profile</g>
         </a>
 
-        <a href="about.php"><span class="material-icons">list_alt</span><p>Changelogs</p></a>
+        <a href="#"><span class="material-icons">list_alt</span><p>Changelogs</p></a>
 
         <center>
 

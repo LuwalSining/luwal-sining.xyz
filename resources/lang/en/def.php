@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Luwal SP',
+    'title' => 'Luwal Sining-Pagganap',
 
     'home' => 'HOME',
     'shows' => 'PROJECTS',
@@ -17,6 +17,6 @@ return [
 
     'showmore' => 'Show More...',
     'detmore' => 'Click for more details...',
-    'no_show' => 'There are no shows to be seen as of now... carry on traveller.',
+    'no_show' => 'There is nothing to be seen as of now... carry on traveller.',
 
 ];

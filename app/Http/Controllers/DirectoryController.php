@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Links;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class DirectoryController extends Controller
 {
     public function index() {
-        $users = User::orderBy('name', 'asc')->get();
+        $users = User::orderBy('department', 'asc')->orderBy('name', 'asc')->get();
         return view('directory', [
             'data' => $users
         ]);
     }
 
-    public function indiv() {
-        $id = request('id');
-        $user = User::where('id', '=', $id)->get();
+    public function show($lang, $artist) {
+
+        $changed = str_replace('+', ' ', $artist);
+        $user = User::where('name', $changed)->get();
+        foreach($user as $get){
+            $id = $get->id;
+        }
+        $links = Links::where('user_id', $id)->get();
         return view('artist', [
-            'data' => $user
+            'data' => $user,
+            'links' => $links
         ]);
     }
 }

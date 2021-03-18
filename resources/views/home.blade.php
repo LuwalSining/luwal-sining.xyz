@@ -7,6 +7,7 @@
     <meta property="og:title" content="{{ __('def.home') }} - {{ __('def.title') }}" />
     <meta property="og:description" content="The official website of the Luwal Sining-Pagganap" />
     <meta name="description" content="The official website of the Luwal Sining-Pagganap" />
+    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}" />
 
 @endsection
 
@@ -30,30 +31,20 @@
         </h2>
 
         <div class="performances">
-            @if($shows->count())
-                @foreach($shows as $show)
+        @if($shows->count())
+            @foreach($shows as $show)
 
-                    <a class="showLink" href="{{ route('shows', app()->getLocale()) }}/{{ $show->slug }}?id={{ $show->id }}">
-                        <div class="performanceBox mdc-elevation--z2">
-                            <div class="perfImg">
-                                <img src="{{ asset('img/') }}/{{ $show->poster }}" alt="show_media">
-                            </div>
-                            <div class="textBox">
-                                <h3>{{ $show->name }}</h3>
-                                <p class="date">({{ $show->date }})</p>
-                                <!--<p>{{ $show->logline }}</p>-->
-                                <p>{{ __('def.detmore') }}</p>
-                            </div>
-                        </div>
-                    </a>
+                <x-show :show="$show">
+                </x-show>
 
-                @endforeach
+            @endforeach
 
-                <a href="{{ route('shows', app()->getLocale()) }}"><div class="showMore mdc-elevation--z2" style="margin-top: 20px;">{{ __('def.showmore') }}</div></a>
-            @else()
+            <a href="{{ route('shows', app()->getLocale()) }}"><div class="showMore mdc-elevation--z2" style="margin-top: 20px;">{{ __('def.showmore') }}</div></a>
 
-                <p>{{ __('def.no_show') }}</p>
-            @endif
+        @else()
+
+            <p>{{ __('def.no_show') }}</p>
+        @endif
 
         </div>
 

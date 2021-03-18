@@ -103,6 +103,11 @@ header #headerImg img {
 #headerText {
     position: absolute!important;
     margin-left: 10px!important;
+    margin-top: 3px;
+}
+
+#headerText h2 {
+    font-size: 20px;
 }
 
 header #headerText,
@@ -245,7 +250,8 @@ header #headerImg {
 /* CONTENTS (PAGE HEAD) */
 .pic_preview h2,
 .pic_shows h2,
-.pic_dir h2 {
+.pic_dir h2,
+.pic_preview_global .text h2 {
     color: #fff;
     display: flex;
     z-index: 9;
@@ -256,7 +262,8 @@ header #headerImg {
 
 .pic_preview h4,
 .pic_shows h4,
-.pic_dir h4 {
+.pic_dir h4,
+.pic_preview_global h4 {
     color: #fff;
     z-index: 9;
     top: 200px;
@@ -265,12 +272,45 @@ header #headerImg {
     font-weight: 200;
 }
 
+.pic_preview_global .text p {
+    color: #fff;
+    z-index: 9;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+.img {
+    display: flex!important;
+    top: -150px;
+    position: relative;
+    z-index: 8;
+    width: 100%;
+}
+
+.video iframe {
+    border-radius: 5px!important;
+}
+
+.pic_preview_global {
+    width: 100%;
+    text-align: left;
+    padding-top: 65px!important;
+    margin-bottom: 20px;
+    background-color: #696969;
+    overflow-x: hidden;
+    height: 180px;
+}
+
 .pic_preview {
     width: 100%;
     text-align: left;
     padding-top: 65px!important;
     margin-bottom: 20px;
     background-color: #764635;
+    overflow-x: hidden;
 }
 
 .pic_shows {
@@ -279,6 +319,7 @@ header #headerImg {
     padding-top: 65px!important;
     margin-bottom: 20px;
     background-color: #3f5228;
+    overflow-x: hidden;
 }
 
 .pic_dir {
@@ -287,15 +328,16 @@ header #headerImg {
     padding-top: 65px!important;
     margin-bottom: 20px;
     background-color: #000000;
+    overflow-x: hidden;
 }
 
 /* COMPONENTS */
 .titleBar {
-    padding: 7px;
+    padding: 0 7px 7px 0;
     width: calc(100% - 14px);
     margin-bottom: 10px;
     border-bottom: 2px solid #55412A;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .performances {
@@ -324,6 +366,7 @@ header #headerImg {
     border-radius: 5px 5px 0 0;
     margin-bottom: 0!important;
     width: 300px;
+    height: auto!important;
 }
 
 .performanceBox .textBox {
@@ -337,6 +380,7 @@ header #headerImg {
 
 .performanceBox .textBox h3 {
     display: inline-block;
+    font-size: 18px;
 }
 
 .performanceBox .textBox p {
@@ -346,7 +390,7 @@ header #headerImg {
 
 .performanceBox .textBox .date {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     display: inline-block;
 }
 
@@ -372,6 +416,56 @@ header #headerImg {
 .otherWrap {
     display: grid;
     grid-template-columns: 25% 75%;
+}
+
+.middleText {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.middleText h2 {
+    font-weight: 700;
+}
+
+.middleText p {
+    font-size: 14px!important;
+}
+
+.seeShow {
+    background-color: #EAAF07;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.seeShow:hover {
+    background-color: #EEB841;
+    cursor: pointer;
+}
+
+.seeShow:active {
+    background-color: #BA8310;
+    cursor: pointer;
+}
+
+.seeShowFalse {
+    background-color: #989898;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.linkTray {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    max-width: 320px;
 }
 
 /* FORMS */
@@ -412,11 +506,19 @@ option:hover {
 
 input[type=text]:hover,
 input[type=password]:hover,
-input:hover{
+input:hover {
     cursor: text;
 }
 
-button[type=submit] {
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #949494;
+}
+
+button[type=submit],
+button[type=button] {
     width: 100px;
     padding: 7px;
     border: none;
@@ -426,7 +528,8 @@ button[type=submit] {
     color: #f1f1f1!important;
 }
 
-button[type=submit]:hover {
+button[type=submit]:hover,
+button[type=button]:hover {
     background-color: #9A7E5C;
     cursor: pointer;
 }
@@ -466,27 +569,33 @@ footer {
     width: 100%;
     padding-top: 25px;
     padding-bottom: 57px;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 footer .lang a {
     color: #5A5A5A!important;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 footer h4 {
     font-size: 24px;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 hr {
     width: 100%;
     height: 1px;
     background-color: #000000;
-    margin: 20px 0 10px 0
+    margin: 20px 0 10px 0;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 footer p {
     padding: 5px;
     width: 200px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    font-family: 'Noto Sans JP', sans-serif!important;
+    font-weight: 200;
 }
 
 footer p:hover {
@@ -495,13 +604,14 @@ footer p:hover {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -o-transition: all .3s ease;
-    transition: all .3s ease
+    transition: all .3s ease;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 footer .socials .socialsCont {
     padding: 5px;
     width: 150px;
-    bottom: 0
+    bottom: 0;
 }
 
 footer .socials .socialsCont a {
@@ -522,12 +632,14 @@ footer .nodecor {
     border: none;
     padding: 0;
     width: 100%;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 footer .nodecor:hover {
     opacity: 100;
-    cursor: default
+    cursor: default;
+    font-family: 'Noto Sans JP', sans-serif!important;
 }
 
 .varLinks,

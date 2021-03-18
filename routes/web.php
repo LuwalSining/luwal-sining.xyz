@@ -12,16 +12,29 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\UserRegController;
 //use App\Http\Controllers\UploadController;
 
+Route::get('/', function(){
+    return redirect('/en');
+})->name('home.redir');
+
 //MAIN PAGE
 Route::group(['prefix' => '{lang}'], function() {
     //Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
     //Shows
     Route::get('/projects', [ShowsController::class, 'index'])->name('shows');
-    Route::get('/projects/{specifics}', [ShowsController::class, 'indiv'])->name('shows.indiv');
+    Route::get('/projects/{show}', [ShowsController::class, 'show'])->name('shows.indiv');
     //Directory
     Route::get('/directory', [DirectoryController::class, 'index'])->name('dir');
-    Route::get('/directory/{artist}', [DirectoryController::class, 'indiv'])->name('dir.indiv');
+    Route::get('/directory/{artist}', [DirectoryController::class, 'show'])->name('dir.indiv');
+    //Legal
+    /*Route::group(['prefix' => 'legal'], function() {
+        Route::get('/privacy-policy', function() {
+            return view('legal.privpol');
+        })->name('privpol');
+        Route::get('/terms-of-use', function() {
+            return view('legal.tos');
+        })->name('tos');
+    });*/
 });
 
 //=====================================================================================//
@@ -41,6 +54,13 @@ Route::group(['prefix' => 'en'], function() {
         //  Upload Files
         Route::post('/upload', [ShowsController::class, 'store'])->name('upload');
         // Edit Profile
-        Route::post('/profile', [DashboardController::class, 'edit'])->name('profile');
+        Route::post('/profile/edit/bio', [DashboardController::class, 'editProfile'])->name('profile.edit');
+        Route::post('/profile/edit/role', [DashboardController::class, 'editRole'])->name('profile.role');
+        Route::post('/profile/edit/links', [DashboardController::class, 'editLinks'])->name('profile.links');
+        // Add/Edit Shows
+        Route::get('/show', [ShowsController::class, 'performance'])->name('perf');
+        Route::get('/show/{show}', [ShowsController::class, 'indivShow'])->name('perf.show');
+        Route::post('/show/add', [ShowsController::class, 'addShow'])->name('perf.add');
+        Route::post('/show/edit', [ShowsController::class, 'editShow'])->name('perf.edit');
     });
 });

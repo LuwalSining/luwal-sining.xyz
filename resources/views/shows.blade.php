@@ -6,6 +6,7 @@
     <meta property="og:title" content="{{ __('def.shows') }} - {{ __('def.title') }}" />
     <meta property="og:description" content="The official listing of LSP's past, current, and future projects." />
     <meta name="description" content="The official listing of LSP's past, current, and future projects." />
+    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}" />
 @endsection
 
 @section('content')
@@ -30,19 +31,10 @@
 
             @if($shows->count())
                 @foreach($shows as $show)
-                    <a class="showLink" href="{{ route('shows', app()->getLocale()) }}/{{ $show->slug }}?id={{ $show->id }}">
-                        <div class="performanceBox mdc-elevation--z2">
-                            <div class="perfImg">
-                                <img src="{{ asset('img/') }}/{{ $show->poster }}" alt="show_media">
-                            </div>
-                            <div class="textBox">
-                                <h3>{{ $show->name }}</h3>
-                                <p class="date">({{ $show->date }})</p>
-                                <!--<p>{{ $show->logline }}</p>-->
-                                <p>{{ __('def.detmore') }}</p>
-                            </div>
-                        </div>
-                    </a>
+
+                    <x-show :show="$show">
+                    </x-show>
+
                 @endforeach
             @else()
                 <p>{{ __('def.no_show') }}</p>

@@ -12,7 +12,7 @@ class HomeController
 {
     public function index($lang) {
         App::setLocale($lang);
-        $shows = Show::orderBy('date', 'desc')->paginate(3);
+        $shows = Show::orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(3);
         return view('home', [
             'shows' => $shows
         ]);

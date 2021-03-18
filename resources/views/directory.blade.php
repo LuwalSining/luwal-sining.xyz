@@ -6,6 +6,7 @@
     <meta property="og:title" content="{{ __('def.directory') }} - {{ __('def.title') }}" />
     <meta property="og:description" content="The listing of LSP's very own artists." />
     <meta name="description" content="The listing of LSP's very own artists." />
+    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}" />
 @endsection
 
 @section('content')
@@ -30,18 +31,10 @@
 
             @if($data->count())
                 @foreach($data as $user)
-                    <a class="showLink" href="{{ route('dir', app()->getLocale()) }}/{{ $user->id }}?id={{ $user->id }}">
-                        <div class="performanceBox mdc-elevation--z2">
-                            <div class="perfImg">
-                                <img src="{{ $user->image }}" alt="show_media">
-                            </div>
-                            <div class="textBox">
-                                <h3>{{ $user->name }}</h3>
-                                <p>{{ $user->department }} Department</p>
-                                <p>{{ __('def.detmore') }}</p>
-                            </div>
-                        </div>
-                    </a>
+
+                    <x-artist :user="$user">
+                    </x-artist>
+
                 @endforeach
             @else()
                 <p>{{ __('def.no_show') }}</p>
