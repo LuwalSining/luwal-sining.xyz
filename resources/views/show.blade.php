@@ -5,10 +5,17 @@
 
         <title>{{ $data->name }} - {{ __('def.title') }}</title>
         <meta charset="UTF-8">
+
+        <meta property="title" content="{{ $data->name }} - {{ __('def.title') }}" />
+        <meta name="description" content="{{ $data->logline }}" />
+
         <meta property="og:title" content="{{ $data->name }} - {{ __('def.title') }}" />
         <meta property="og:description" content="{{ $data->logline }}" />
-        <meta name="description" content="{{ $data->logline }}" />
-        <meta property="og:image" content="{{ asset('img') }}/{{ $data->poster }}" />
+        <meta property="og:image" content="{{ asset('img/shows') }}/{{ $data->poster }}" />
+
+        <meta property="twitter:title" content="{{ $data->name }} - {{ __('def.title') }}" />
+        <meta property="twitter:description" content="{{ $data->logline }}" />
+        <meta property="twitter:image" content="{{ asset('img/shows') }}/{{ $data->poster }}" />
 
     @endforeach
 @endsection

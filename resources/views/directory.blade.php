@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+
     <div class="pic_dir mdc-elevation--z2">
 
         <center>
