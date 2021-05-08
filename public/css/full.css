@@ -23,6 +23,9 @@
     .navCont {
         position: fixed;
         right: 17px;
+        top: 14px;
+        display: flex;
+        width: 170px;
     }
 
     .headerWrap {
@@ -30,9 +33,11 @@
     }
 
     .navCont div {
-        display: inline-block;
-        margin-right: 12px;
         width: 32px;
+    }
+
+    footer {
+        padding-bottom: 57px;
     }
 
     /* SCROLLBAR */

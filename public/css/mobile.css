@@ -150,6 +150,19 @@ header #headerImg {
     cursor: pointer;
 }
 
+.nav-text {
+    font-size: 12px !important;
+    margin-top: -3px;
+}
+
+@media (min-width: 850px) {
+    .nav-text {
+        display: none;
+        /*font-size: 16px!important;
+        margin-top: 0;*/
+    }
+}
+
 /* MENU DRAWER */
 .menuDrawer {
     background-color: #A5A5A5;
@@ -474,7 +487,6 @@ form .label {
     color: #000;
     margin-bottom: 7px!important;
     padding-bottom: 3px;
-    border-bottom: 1px solid #55412A;
 }
 input[type=text],
 input[type=password],
@@ -568,7 +580,7 @@ footer {
     background-color: #D4D4D4;
     width: 100%;
     padding-top: 25px;
-    padding-bottom: 57px;
+    padding-bottom: 77px;
     font-family: 'Noto Sans JP', sans-serif!important;
 }
 
@@ -675,4 +687,10 @@ footer .nodecor:hover {
     width: 100%;
     max-width: 320px;
     height: auto;
+}
+
+.error {
+    color: #C80003;
+    font-size: 12px;
+    margin-bottom: 5px;
 }

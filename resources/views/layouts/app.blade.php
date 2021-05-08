@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+
     @yield('meta')
 
     <!-- CSS -->
@@ -11,7 +12,7 @@
 
     <!-- LIBS -->
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
-    <link href="{{ asset('css/md_icons.css') }}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link href="{{ asset('css/md_css.css') }}" rel="stylesheet" />
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/md_js.js') }}"></script>
@@ -52,13 +53,16 @@
 <div class="navBar">
     <div class="navCont">
         <div>
-            <a class="bu1 material-icons " title="{{ __('def.home') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('home', app()->getLocale()) }}">home</a>
+            <a class="{{ Request::segment(2) == "" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.home') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('home', app()->getLocale()) }}">home</a>
+            <p class="nav-text">{{ __('def.home') }}</p>
         </div>
         <div>
-            <a class="bu2 material-icons " title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
+            <a class="{{ Request::segment(2) == "projects" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
+            <p class="nav-text">{{ __('def.shows') }}</p>
         </div>
         <div>
-            <a class="bu3 material-icons " title="{{ __('def.directory') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('dir', app()->getLocale()) }}">account_box</a>
+            <a class="{{ Request::segment(2) == "directory" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.directory') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('dir', app()->getLocale()) }}">account_box</a>
+            <p class="nav-text">{{ __('def.directory') }}</p>
         </div>
     </div>
 </div>

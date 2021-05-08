@@ -17,31 +17,11 @@ class DashboardController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index(Request $request) {
+    public function index() {
         //dd(authentication->get reference->model to reference);
         //dd(auth()->user()->shows);
 
-        $user = auth()->user();
-        $checkForLinks = Links::where('user_id', $user->id)->get();
-
-        if(!$checkForLinks->count()) {
-            Links::create([
-                'user_id' => $user->id,
-                'facebook' => '',
-                'twitter' => '',
-                'instagram' => '',
-                'youtube' => '',
-                'linkedin' => '',
-                'website' => ''
-            ]);
-        }
-
-        $getUser = User::where('name', '=', auth()->user()->name)->get();
-        $getLinks = Links::where('user_id', auth()->user()->id)->get();
-        return view('dashboard.index', [
-            'userData' => $getUser,
-            'linkData' => $getLinks
-        ]);
+        return view('dashboard.index');
     }
 
     public function editProfile(Request $request) {

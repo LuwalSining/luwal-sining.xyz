@@ -31,6 +31,7 @@
     <meta property="og:url" content="https://luwalsining.org" />
     <meta property="og:title" content="Luwal Sining-Panggap" />
 
+    @livewireStyles
 </head>
 
 <header class="mdc-elevation--z3">
@@ -106,6 +107,9 @@
 </div>
 
 <body style="background-color: #4a4a4a; margin-top: 70px">
-@yield('content')
+
+    @yield('content')
+
+    @livewireScripts
 </body>
 </html>
