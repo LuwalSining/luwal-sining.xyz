@@ -53,7 +53,7 @@ Route::group(['prefix' => 'en'], function() {
         Route::post('/register/create', [UserRegController::class, 'store'])->name('register.create');
         //  Upload Files
         Route::post('/upload', [ShowsController::class, 'store'])->name('upload');
-        // Edit Profile
+        // Edit Procfile
         Route::post('/profile/edit/bio', [DashboardController::class, 'editProfile'])->name('profile.edit');
         Route::post('/profile/edit/role', [DashboardController::class, 'editRole'])->name('profile.role');
         Route::post('/profile/edit/links', [DashboardController::class, 'editLinks'])->name('profile.links');
