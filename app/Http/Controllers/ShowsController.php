@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\DB;
 class ShowsController extends Controller {
 
     public function index() {
-        $shows = Show::orderBy('date', 'asc')->orderBy('id', 'asc')->get();
+
+        $all = Show::orderBy('date', 'asc')->get();
+
         return view('shows', [
-            'shows' => $shows
+            'shows' => $all,
         ]);
     }
 
@@ -53,6 +55,7 @@ class ShowsController extends Controller {
     public function indivShow($show) {
 
         $shows = Show::where('slug', $show)->get();
+
         foreach($shows as $data){
             $id = $data->id;
         }
@@ -114,7 +117,7 @@ class ShowsController extends Controller {
 
     }
 
-    public function editShow(Request $request) {
+    public function editShow(Show $show, Request $request) {
 
         $request->validate([
             'name' => 'required',
@@ -126,19 +129,25 @@ class ShowsController extends Controller {
             //'link' => 'required',
         ]);
 
-        Show::where('id', $request->show_id)->update([
+        $str = $request->name.' '.$request->date;
+        $slugRAW = str_replace(' ', '-', $str);
+        $slug = strtolower($slugRAW);
+
+        Show::where('id', $show->id)->update([
             'name' => $request->name,
             'date' => $request->date,
             'logline' => $request->logline,
             'credits' => $request->credits,
             'poster' => $request->poster,
+            'status' => $request->status,
+            'slug' => $slug,
         ]);
 
-        Media::where('show_id', $request->show_id)->update([
+        Media::where('show_id', $show->id)->update([
             'file' => $request->embed,
         ]);
 
-        Performance::where('show_id', $request->show_id)->update([
+        Performance::where('show_id', $show->id)->update([
             'link' => $request->link,
         ]);
 

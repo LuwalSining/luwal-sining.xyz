@@ -106,7 +106,7 @@
 
 </div>
 
-<body style="background-color: #4a4a4a; margin-top: 70px">
+<body style="background: #4a4a4a!important; margin-top: 70px">
 
     @yield('content')
 

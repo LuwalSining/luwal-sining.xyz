@@ -21,7 +21,7 @@
         <section style="margin-bottom: 20px">
             @foreach($sdata as $data)
 
-                <a href="{{ route('perf', app()->getLocale()) }}/{{ str_replace(' ', '+', $data->slug) }}">
+                <a href="{{ route('perf', App::getLocale()) }}/{{ str_replace(' ', '+', $data->slug) }}">
                     <div class="formCont" style="margin-bottom: 10px">
                         <h3 style="flex-shrink: 0">{{ $data->name }}<p style="font-size: 14px;display:inline-block; margin-left: 5px">({{ $data->date }})</p></h3>
                         <h5>Click here to edit...</h5>

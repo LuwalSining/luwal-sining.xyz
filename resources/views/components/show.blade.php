@@ -1,5 +1,5 @@
 
-<a class="showLink" href="{{ route('shows', app()->getLocale()) }}/{{ str_replace(' ', '+', $show->slug) }}">
+<a class="showLink" href="{{ route('shows', App::getLocale()) }}/{{ str_replace(' ', '+', $show->slug) }}">
     <div class="performanceBox mdc-elevation--z2">
         <div class="perfImg">
             <img src="{{ asset('img/shows') }}/{{ $show->poster }}" alt="show_media">

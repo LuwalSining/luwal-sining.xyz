@@ -6,6 +6,11 @@
                     <img src="{{ $info->image }}" alt="{{ $info->name }}'s photo">
                 </div>
                 <hr>
+                <div class="profileWrap">
+                    <h4>{{ $info->name }}</h4>
+                    <p style="margin-bottom: 5px"><i>{{ $info->department }} Department</i></p>
+                    <p>{{ $info->bio }}</p>
+                </div>
                 <div class="socials" style="margin-top: 10px; width: 200px; display: flex">
 
                     @foreach($linkData as $link)
@@ -32,6 +37,8 @@
 
                         @if(substr($link->website, 0, 31) == "https://open.spotify.com/artist")
                             <a class="fab fa-spotify" style="font-size: 24px;" href="{{ $link->website }}" target="_blank"></a>
+                        @elseif(substr($link->website, 0, 33) == 'https://open.spotify.com/playlist')
+                            <a class="fab fa-spotify" style="font-size: 24px;" href="{{ $link->website }}" target="_blank"></a>
                         @elseif(substr($link->website, 0, 22) == "https://musescore.com/")
                             <a class="fas fa-music" style="font-size: 24px;" href="{{ $link->website }}" target="_blank"></a>
                         @elseif($link->website)
@@ -40,11 +47,6 @@
 
                     @endforeach
 
-                </div>
-                <div class="profileWrap">
-                    <h4>{{ $info->name }}</h4>
-                    <p style="margin-bottom: 5px"><i>{{ $info->department }} Department</i></p>
-                    <p>{{ $info->bio }}</p>
                 </div>
             </div>
             <a href="{{ route('dir', ['en']) }}/{{ str_replace(' ', '+', $info->name) }}" target="_blank">

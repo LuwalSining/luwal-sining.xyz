@@ -21,7 +21,13 @@ class DashboardController extends Controller
         //dd(authentication->get reference->model to reference);
         //dd(auth()->user()->shows);
 
-        return view('dashboard.index');
+        $getUser = User::where('name', auth()->user()->name)->get();
+        $getLinks = Links::where('user_id', auth()->user()->id)->get();
+
+        return view('dashboard.index', [
+            'userData' => $getUser,
+            'linkData' => $getLinks
+        ]);
     }
 
     public function editProfile(Request $request) {

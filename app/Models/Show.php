@@ -16,6 +16,7 @@ class Show extends Model
         'credits',
         'poster',
         'slug',
+        'status',
     ];
 
     protected function media() {

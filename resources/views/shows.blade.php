@@ -24,6 +24,78 @@
     <div class="contentWrap">
 
         <h2 class="titleBar">
+            {{ __('pages.current') }}
+        </h2>
+
+        <div class="performances">
+
+            @if($shows->count())
+
+                @foreach($shows as $show)
+
+                    @if($show->status == 2)
+
+                        <x-show :show="$show"/>
+
+                    @endif
+
+                @endforeach
+
+            @else
+                <p>{{ __('def.no_show') }}</p>
+            @endif
+
+        </div>
+
+        <h2 class="titleBar">
+            {{ __('pages.future') }}
+        </h2>
+
+        <div class="performances">
+
+            @if($shows->count())
+
+                @foreach($shows as $show)
+
+                    @if($show->status == 1)
+
+                        <x-show :show="$show"/>
+
+                    @endif
+
+                @endforeach
+
+            @else
+                <p>{{ __('def.no_show') }}</p>
+            @endif
+
+        </div>
+
+        <h2 class="titleBar">
+            {{ __('pages.past') }}
+        </h2>
+
+        <div class="performances">
+
+            @if($shows->count())
+
+                @foreach($shows as $show)
+
+                    @if($show->status == 3)
+
+                        <x-show :show="$show"/>
+
+                    @endif
+
+                @endforeach
+
+            @else
+                <p>{{ __('def.no_show') }}</p>
+            @endif
+
+        </div>
+
+        <h2 class="titleBar">
             {{ __('pages.show_title') }}
         </h2>
 
@@ -32,11 +104,10 @@
             @if($shows->count())
                 @foreach($shows as $show)
 
-                    <x-show :show="$show">
-                    </x-show>
+                    <x-show :show="$show"/>
 
                 @endforeach
-            @else()
+            @else
                 <p>{{ __('def.no_show') }}</p>
             @endif
 

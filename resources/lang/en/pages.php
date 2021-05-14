@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     //HOME
     'perf_title' => 'RECENT PERFORMANCES',
     'previewtext_home' => 'The official performing arts group of Regional Lead School for the Arts in Angono',
@@ -9,6 +10,9 @@ return [
     'previewtitle_show' => 'OUR PERFORMANCES',
     'previewtext_show' => 'Contemporary experiments and explorations in dance, music, and theatre.',
     'show_title' => 'COMPLETE CATALOGUE',
+    'future' => 'UPCOMING SHOWS',
+    'current' => 'NOW SHOWING',
+    'past' => 'PAST SHOWS',
 
     //SHOW
     'trailer' => 'VIDEO',

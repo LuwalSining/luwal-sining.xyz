@@ -4,13 +4,13 @@ Made by: The Luwal Sining-Panggap Technical Team
 Copyright 2021 */
 
 /* Font LIBs */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 /* DEFAULTS */
 
 * {
     margin: 0 auto;
     padding: 0;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #000;
 }
 
@@ -18,17 +18,19 @@ Copyright 2021 */
     color: #3e3e3e
 }
 
-body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-x: hidden;
-}
-
 html,
 body {
     width: 100%;
     height: 100%
+}
+
+body {
+    background: rgb(222,222,222);
+    background: linear-gradient(45deg, rgba(222,222,222,1) 40%, rgba(255,255,255,1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 a {
@@ -41,8 +43,8 @@ a:hover {
 
 h1,
 h2,
-h3 {
-    font-family: 'Noto Sans JP', sans-serif;
+h3,
+b {
     font-weight: 700;
 }
 
@@ -50,7 +52,6 @@ h4,
 h5,
 h6,
 p {
-    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400
 }
 
@@ -282,7 +283,7 @@ header #headerImg {
     top: 200px;
     position: absolute;
     left: 5%;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .pic_preview_global .text p {
@@ -346,8 +347,8 @@ header #headerImg {
 
 /* COMPONENTS */
 .titleBar {
-    padding: 0 7px 7px 0;
-    width: calc(100% - 14px);
+    padding: 0 0 7px 0;
+    width: 100%;
     margin-bottom: 10px;
     border-bottom: 2px solid #55412A;
     font-size: 20px;
@@ -356,6 +357,7 @@ header #headerImg {
 .performances {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 15px;
 }
 
 .departments {
@@ -376,10 +378,10 @@ header #headerImg {
 }
 
 .performanceBox .perfImg img{
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
     margin-bottom: 0!important;
     width: 300px;
-    height: auto!important;
+    object-fit: cover;
 }
 
 .performanceBox .textBox {
@@ -472,6 +474,11 @@ header #headerImg {
     padding: 10px;
     font-size: 14px;
     font-weight: 600;
+}
+
+.seeShowFalse:hover {
+    background-color: #BABABA;
+    cursor: not-allowed;
 }
 
 .linkTray {

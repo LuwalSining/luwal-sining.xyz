@@ -57,7 +57,7 @@
             <p class="nav-text">{{ __('def.home') }}</p>
         </div>
         <div>
-            <a class="{{ Request::segment(2) == "projects" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
+            <a class="{{ Request::segment(2) == "shows" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
             <p class="nav-text">{{ __('def.shows') }}</p>
         </div>
         <div>

@@ -28,11 +28,8 @@
                 </p>
 
                 <div class="edit-show-form">
-                    <form action="{{ route('perf.edit') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('perf.edit', $data->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
-
-                        <label for="id" style="font-size: 14px; margin-bottom: 10px">Show ID (UNEDITABLE)</label>
-                        <input id="id" placeholder="Show name..." type="text" name="show_id" value="{{ $data->id }}" readonly>
 
                         <label for="name" style="font-size: 14px; margin-bottom: 10px">Show Name</label>
                         <input id="name" placeholder="Show name..." type="text" name="name" value="{{ $data->name }}">
@@ -48,6 +45,14 @@
 
                         <label for="poster" style="font-size: 14px; margin-bottom: 10px">Poster file name</label>
                         <input id="poster" placeholder="Poster file name..." type="text" name="poster" value="{{ $data->poster }}">
+
+                        <p style="font-size: 14px" for="status">Edit Status</p>
+                        <select name="status">
+                            <option class="selector" value="{{ $data->status }}">--SELECT STATUS--</option>
+                            <option value="1">Upcoming Show</option>
+                            <option value="2">Now Showing</option>
+                            <option value="3">Past Show</option>
+                        </select>
 
                         @foreach($mdata as $media)
 

@@ -4,10 +4,10 @@ return [
 
     'title' => 'Luwal Sining-Pagganap',
 
-    'home' => 'HOME',
-    'shows' => 'PROJECTS',
-    'directory' => 'DIRECTORY',
-    'settings' => 'SETTINGS',
+    'home' => 'Home',
+    'shows' => 'Shows',
+    'directory' => 'Directory',
+    'settings' => 'Settings',
     'about' => 'About Us',
     'privpol' => 'Privacy Policy',
     'tos' => 'Terms of Use',

@@ -21,8 +21,8 @@ Route::group(['prefix' => '{lang}'], function() {
     //Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
     //Shows
-    Route::get('/projects', [ShowsController::class, 'index'])->name('shows');
-    Route::get('/projects/{show}', [ShowsController::class, 'show'])->name('shows.indiv');
+    Route::get('/shows', [ShowsController::class, 'index'])->name('shows');
+    Route::get('/shows/{show}', [ShowsController::class, 'show'])->name('shows.indiv');
     //Directory
     Route::get('/directory', [DirectoryController::class, 'index'])->name('dir');
     Route::get('/directory/{artist}', [DirectoryController::class, 'show'])->name('dir.indiv');
@@ -61,6 +61,6 @@ Route::group(['prefix' => 'en'], function() {
         Route::get('/show', [ShowsController::class, 'performance'])->name('perf');
         Route::get('/show/{show}', [ShowsController::class, 'indivShow'])->name('perf.show');
         Route::post('/show/add', [ShowsController::class, 'addShow'])->name('perf.add');
-        Route::post('/show/edit', [ShowsController::class, 'editShow'])->name('perf.edit');
+        Route::post('/show/edit/{show}', [ShowsController::class, 'editShow'])->name('perf.edit');
     });
 });
