@@ -21,13 +21,13 @@
 
     </div>
 
-    <div class="contentWrap">
+    <div class="wrap--content--no-margin-top">
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.current') }}
         </h2>
 
-        <div class="performances">
+        <div class="container--grid">
 
             @if($shows->count())
 
@@ -47,11 +47,11 @@
 
         </div>
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.future') }}
         </h2>
 
-        <div class="performances">
+        <div class="container--grid">
 
             @if($shows->count())
 
@@ -71,11 +71,11 @@
 
         </div>
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.past') }}
         </h2>
 
-        <div class="performances">
+        <div class="container--grid">
 
             @if($shows->count())
 
@@ -95,11 +95,11 @@
 
         </div>
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.show_title') }}
         </h2>
 
-        <div class="performances">
+        <div class="container--grid">
 
             @if($shows->count())
                 @foreach($shows as $show)

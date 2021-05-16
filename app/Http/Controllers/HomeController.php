@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController
 {
-    public function index($lang) {
-        App::setLocale($lang);
-        $shows = Show::orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(3);
+    public function index() {
+
+        $shows = Show::orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(4);
         return view('home', [
             'shows' => $shows
         ]);
+
     }
 }

@@ -15,25 +15,24 @@
 
 @section('content')
 
-    <div class="contentWrap" style="margin-top: 70px">
+    <div class="wrap--content" style="margin-top: 70px">
 
-        <div class="departments">
+        <div class="title-bar--on-card">
+            <h3>ARTIST PROFILE</h3>
+        </div>
+
+        <div class="container--flex">
 
             @if($data->count())
 
                 @foreach($data as $user)
 
-                    <h2 class="titleBar">
-                        <p style="font-weight: 700; display: inline">{{ $user->name }}</p>
-                        <p class="date" style="font-size: 14px!important; display: inline; margin-left: 3px">({{ $user->department }} Department)</p>
-                    </h2>
-
                     <div class="performanceBox">
-                        <div class="perfImg mdc-elevation--z2" style="height: auto!important;">
-                            <img style="border-radius: 5px!important;" src="{{ $user->image }}" alt="show_media">
+                        <div class="perfImg mdc-elevation--z2" style="height: auto!important; width: 300px">
+                            <img style="border-radius: 5px!important; width: 300px" src="{{ $user->image }}" alt="show_media">
                         </div>
 
-                        <div class="socials" style="margin-top: 10px; width: 200px; display: flex">
+                        <div class="socials" style="margin: 10px auto 0 auto; width: 200px; display: flex; justify-content: space-evenly;">
 
                             @foreach($links as $link)
 
@@ -72,6 +71,11 @@
                     </div>
 
                     <div class="performanceBox" style="width: 600px; text-align: justify">
+
+                        <h2 class="title-bar--on-card">
+                            <p style="font-weight: 700; display: inline">{{ $user->name }}</p>
+                            <p class="date" style="font-size: 14px!important; display: inline; margin-left: 3px">({{ $user->department }} Department)</p>
+                        </h2>
 
                         <p>{!! $user->bio !!}</p>
 

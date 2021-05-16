@@ -1,0 +1,34 @@
+/* HEADER (Namespace: Header__[component] */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    height: 55px;
+
+    .header__wrap a {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        padding: 10px;
+
+        .header__img {
+            margin: 0!important;
+            width: 57px;
+            border-radius: 50%;
+        }
+
+        .header__text {
+            margin: 5px 0 0 10px!important;
+            color: var(--on-primary);
+        }
+    }
+
+    @media (min-width: 850px) {
+        .header__wrap {
+            margin-left: 17px !important;
+        }
+    }
+
+}

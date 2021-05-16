@@ -22,13 +22,13 @@
 
     </div>
 
-    <div class="contentWrap">
+    <div class="wrap--content--no-margin-top">
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.search_by_dept') }}
         </h2>
 
-        <div class="departments">
+        <div class="container--grid">
 
             @if($data->count())
                 @foreach($data as $user)

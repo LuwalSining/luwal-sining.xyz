@@ -30,8 +30,7 @@
 
     @foreach($sdata as $show)
 
-        <div class="pic_preview_global mdc-elevation--z2" style="">
-        </div>
+        <div class="pic_preview_global mdc-elevation--z2"></div>
 
         <div class="img">
             @if($mdata->count())
@@ -45,71 +44,75 @@
             @endif
         </div>
 
-        <div class="info" style="margin-top: -150px">
-            <div class="middleText">
-                <h2>{{ $show->name }}</h2>
-                <p class="date">({{ $show->date }})</p>
-            </div>
+        <div class="info" style="margin-top: -140px">
+            <div>
+                <div class="middleText">
+                    <h2>{{ $show->name }}</h2>
+                    <p class="date">({{ $show->date }})</p>
+                </div>
 
-            <div class="linkTray">
+                <div class="linkTray">
 
-                @if($pdata->count())
-                    @foreach($pdata as $data)
+                    @if($pdata->count())
+                        @foreach($pdata as $data)
 
-                        @if($data->link == '')
+                            @if($data->link == '')
 
-                            <button class="seeShowFalse mdc-elevation--z2">{{ __('pages.no_access') }}</button>
+                                <button class="seeShowFalse mdc-elevation--z2">{{ __('pages.no_access') }}</button>
 
-                        @else
+                            @else
 
-                            <a href="{{ $data->link }}" target="_blank" nofollow>
-                                <button class="seeShow mdc-elevation--z2">{{ __('pages.access') }}</button>
-                            </a>
+                                <a href="{{ $data->link }}" target="_blank" nofollow>
+                                    <button class="seeShow mdc-elevation--z2">{{ __('pages.access') }}</button>
+                                </a>
 
-                        @endif
+                            @endif
 
-                    @endforeach
-                @else
+                        @endforeach
+                    @else
 
-                    <button class="seeShowFalse mdc-elevation--z2">{{ __('pages.no_access') }}</button>
+                        <button class="seeShowFalse mdc-elevation--z2">{{ __('pages.no_access') }}</button>
 
                 @endif()
 
                 <!--<a href="#">
                     <button class="seeShowFalse mdc-elevation--z2">UNAVAILABLE</button>
                 </a>-->
+                </div>
             </div>
         </div>
 
-    <div class="contentWrap">
+    @endforeach
 
-        @endforeach
+    <div class="wrap--content--no-margin-top">
 
-        <div class="performances">
+        <div class="container--flex">
 
-            @if($sdata->count())
+            <div style="width: 920px; display: flex; flex-flow: row wrap; gap: 20px">
+                @if($sdata->count())
 
-                @foreach($sdata as $show)
+                    @foreach($sdata as $show)
 
-                    <div class="performanceBox">
-                        <div class="perfImg" style="height: auto">
-                            <img class="mdc-elevation--z3" src="{{ asset('img/shows') }}/{{ $show->poster }}">
+                        <div class="performanceBox">
+                            <div class="perfImg" style="height: auto; width: 300px">
+                                <img style="width: 300px" class="mdc-elevation--z3" src="{{ asset('img/shows') }}/{{ $show->poster }}">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="performanceBox" style="width: 600px">
+                        <div class="performanceBox" style="width: 600px;">
 
-                        <h2 class="titleBar">{{ __('pages.credits') }}</h2>
+                            <h2 class="titleBar">{{ __('pages.credits') }}</h2>
 
                             <p>{!! $show->credits !!}</p>
 
-                    </div>
+                        </div>
 
-                @endforeach
+                    @endforeach
 
-            @else()
-                <p>{{ __('def.no_show') }}</p>
-            @endif
+                @else()
+                    <p>{{ __('def.no_show') }}</p>
+                @endif
+            </div>
 
         </div>
 

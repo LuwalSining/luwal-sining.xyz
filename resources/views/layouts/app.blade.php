@@ -2,13 +2,11 @@
 <html>
 <head>
 
-    @yield('meta')
+@yield('meta')
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/mobile.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/medium.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/full.css') }}">
-    <!--<link rel="stylesheet" type="text/css" href="CSS/style.min.css" id="changeStyle">-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/stack/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/stack/theme.css') }}">
 
     <!-- LIBS -->
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
@@ -31,67 +29,71 @@
 
 </head>
 
-<header class="mdc-elevation--z3">
+<header class="header mdc-elevation--z3">
 
-    <div class="headerWrap">
+    <div class="header__wrap">
         <a href="{{ route('home', app()->getLocale()) }}">
-            <div id="headerImg">
-                <img src="{{ asset('img/luwal_logo.png') }}" alt="luwal_logo" class="mdc-elevation--z4">
-            </div>
-            <div id="headerText">
-                <h2 style="color: #fff" id="title">{{ __('def.title') }}</h2>
-            </div>
+
+            <img
+                class="header__img mdc-elevation--z4"
+                src="{{ asset('img/luwal_logo.png') }}"
+                alt="luwal_logo"
+            >
+
+            <h2 class="header__text" id="title">{{ __('def.title') }}</h2>
+
         </a>
+    </div>
+
+    <div class="nav">
+        <div class="nav__container">
+            <div class="nav__item">
+                <a class="{{ Request::segment(2) == "" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.home') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('home', app()->getLocale()) }}">home</a>
+                <p class="nav__item_text">{{ __('def.home') }}</p>
+            </div>
+            <div class="nav__item">
+                <a class="{{ Request::segment(2) == "shows" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
+                <p class="nav__item_text">{{ __('def.shows') }}</p>
+            </div>
+            <div class="nav__item">
+                <a class="{{ Request::segment(2) == "directory" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.directory') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('dir', app()->getLocale()) }}">account_box</a>
+                <p class="nav__item_text">{{ __('def.directory') }}</p>
+            </div>
+        </div>
     </div>
 
 </header>
 
-<script type="text/javascript">
-    $(document).ready(function(){$("#69420desu").click(function(){$("#drawer2").fadeToggle("fast"),$("#69420desu").toggleClass("close");var e=document.getElementById("69420desu");"bu4 material-icons"===e.className?e.innerHTML="settings":"bu4 material-icons close"===e.className&&(e.innerHTML="close")})});
-</script>
-
-<div class="navBar">
-    <div class="navCont">
-        <div>
-            <a class="{{ Request::segment(2) == "" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.home') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('home', app()->getLocale()) }}">home</a>
-            <p class="nav-text">{{ __('def.home') }}</p>
-        </div>
-        <div>
-            <a class="{{ Request::segment(2) == "shows" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.shows') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('shows', app()->getLocale()) }}">theater_comedy</a>
-            <p class="nav-text">{{ __('def.shows') }}</p>
-        </div>
-        <div>
-            <a class="{{ Request::segment(2) == "directory" ? 'material-icons' : 'material-icons-outlined' }}" title="{{ __('def.directory') }}" data-mdc-ripple-is-unbounded="true" href="{{ route('dir', app()->getLocale()) }}">account_box</a>
-            <p class="nav-text">{{ __('def.directory') }}</p>
-        </div>
-    </div>
-</div>
-
 <body>
-    @yield('content')
+@yield('content')
 
 </body>
-<footer>
+<footer class="footer">
     <div class="textWrap">
         <div class="varLinks">
             <a href="#"><p>{{ __('def.privpol') }}</p></a>
             <a href="#"><p>{{ __('def.tos') }}</p></a>
             <div class="socials">
                 <div class="socialsCont">
-                    <a class="fab fa-facebook-square" style="font-size: 24px;" href="https://facebook.com/luwaLSP" target="_blank"></a>
+                    <a class="fab fa-facebook-square" style="font-size: 24px;" href="https://facebook.com/luwaLSP"
+                       target="_blank"></a>
                     <a class="fab fa-instagram" style="font-size: 24px;" href="#" target="_blank"></a>
-                    <a class="fab fa-youtube-square" style="font-size: 24px;" href="https://www.youtube.com/channel/UC95DmLJKQmunjWpB2HIiVvw" target="_blank"></a>
-                    <!--<a class="fab fa-patreon" style="font-size: 24px;" href="https://patreon.com/growstocks" target="_blank"></a>-->
+                    <a class="fab fa-youtube-square" style="font-size: 24px;"
+                       href="https://www.youtube.com/channel/UC95DmLJKQmunjWpB2HIiVvw" target="_blank"></a>
                 </div>
             </div>
         </div>
         <hr>
+
         <div class="lang" style="margin-bottom: 10px">
-            <a href="{{ route('home', ['en']) }}" class="langLink active"><li>English</li></a><span class="blueFont">|</span>
-            <a href="{{ route('home', ['tl']) }}" class="langLink active"><li>Tagalog</li></a><span class="blueFont">|</span>
-            <a href="{{ route('home', ['jp']) }}" class="langLink active"><li>日本語</li></a>
+            <a href="{{ route('home', ['en']) }}" class="langLink"><p>English</p></a>
+            <span class="drawer__spacer">|</span>
+            <a href="{{ route('home', ['tl']) }}" class="langLink"><p>Tagalog</p></a>
+            <span class="drawer__spacer">|</span>
+            <a href="{{ route('home', ['jp']) }}" class="langLink"><p>日本語</p></a>
         </div>
-        <p class="nodecor" style="font-family: CenturyGothicBold">{{ __('def.copyright') }}</p>
+
+        <p class="nodecor">{{ __('def.copyright') }}</p>
     </div>
 </footer>
 </html>

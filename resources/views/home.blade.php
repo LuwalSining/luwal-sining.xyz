@@ -4,10 +4,10 @@
 
     <title>{{ __('def.home') }} - {{ __('def.title') }}</title>
     <meta charset="UTF-8">
-    <meta property="og:title" content="{{ __('def.home') }} - {{ __('def.title') }}" />
-    <meta property="og:description" content="The official website of the Luwal Sining-Pagganap" />
-    <meta name="description" content="The official website of the Luwal Sining-Pagganap" />
-    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}" />
+    <meta property="og:title" content="{{ __('def.home') }} - {{ __('def.title') }}"/>
+    <meta property="og:description" content="The official website of the Luwal Sining-Pagganap"/>
+    <meta name="description" content="The official website of the Luwal Sining-Pagganap"/>
+    <meta property="og:image" content="{{ asset('img/ogphoto.png') }}"/>
 
 @endsection
 
@@ -19,34 +19,41 @@
             <img src="{{ asset('img/preview.jpg') }}">
         </center>
 
-        <h2>{{ __('def.title') }}</h2>
+        <h2>{{ strtoupper(__('def.title')) }}</h2>
         <h4>{{ __('pages.previewtext_home') }}</h4>
 
     </div>
 
-    <div class="contentWrap">
+    <div class="wrap--content--no-margin-top">
 
-        <h2 class="titleBar">
+        <h2 class="title-bar--on-card">
             {{ __('pages.perf_title') }}
         </h2>
 
-        <div class="performances">
-        @if($shows->count())
-            @foreach($shows as $show)
+        <div class="container--grid">
 
-                <x-show :show="$show">
-                </x-show>
+            @if($shows->count())
 
-            @endforeach
+                @foreach($shows as $show)
 
-            <a href="{{ route('shows', app()->getLocale()) }}"><div class="showMore mdc-elevation--z2" style="margin-top: 20px;">{{ __('def.showmore') }}</div></a>
+                    <x-show :show="$show">
+                    </x-show>
 
-        @else()
+                @endforeach
 
-            <p>{{ __('def.no_show') }}</p>
-        @endif
+            @else()
+
+                <p>{{ __('def.no_show') }}</p>
+
+            @endif
 
         </div>
+
+        @if($shows->count())
+            <a href="{{ route('shows', app()->getLocale()) }}">
+                <div class="btn--bold mdc-elevation--z2" style="margin-top: 20px;">{{ __('def.showmore') }}</div>
+            </a>
+        @endif
 
         <div class="otherWrap">
 
