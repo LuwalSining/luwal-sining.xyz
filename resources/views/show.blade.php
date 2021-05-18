@@ -51,12 +51,12 @@
                     <p class="date">({{ $show->date }})</p>
                 </div>
 
-                <div class="linkTray">
+                <div class="linkTray" style="justify-content: space-evenly">
 
                     @if($pdata->count())
                         @foreach($pdata as $data)
 
-                            @if($data->link == '')
+                            @if(!$data->link)
 
                                 <button class="seeShowFalse mdc-elevation--z2">{{ __('pages.no_access') }}</button>
 
@@ -88,7 +88,7 @@
 
         <div class="container--flex">
 
-            <div style="width: 920px; display: flex; flex-flow: row wrap; gap: 20px">
+            <div style="width: 100%; max-width: 920px; display: flex; flex-flow: row wrap; gap: 20px; justify-content: space-evenly">
                 @if($sdata->count())
 
                     @foreach($sdata as $show)
@@ -101,9 +101,9 @@
 
                         <div class="performanceBox" style="width: 600px;">
 
-                            <h2 class="titleBar">{{ __('pages.credits') }}</h2>
+                            <h2 class="titleBar show__credits">{{ __('pages.credits') }}</h2>
 
-                            <p>{!! $show->credits !!}</p>
+                            <p class="show__credits">{!! $show->credits !!}</p>
 
                         </div>
 

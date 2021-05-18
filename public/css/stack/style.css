@@ -168,6 +168,7 @@ body {
 .header .header__wrap a .header__img {
   margin: 0 !important;
   width: 57px;
+  height: 57px;
   border-radius: 50%;
 }
 .header .header__wrap a .header__text {

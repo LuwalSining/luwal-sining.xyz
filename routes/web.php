@@ -35,6 +35,12 @@ Route::group(['prefix' => '{lang}'], function() {
             return view('legal.tos');
         })->name('tos');
     });*/
+
+    Route::get('/across-rooms', function() {
+
+        return view('across-rooms.rooms');
+
+    })->name('across-rooms');
 });
 
 //=====================================================================================//

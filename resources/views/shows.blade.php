@@ -72,30 +72,6 @@
         </div>
 
         <h2 class="title-bar--on-card">
-            {{ __('pages.past') }}
-        </h2>
-
-        <div class="container--grid">
-
-            @if($shows->count())
-
-                @foreach($shows as $show)
-
-                    @if($show->status == 3)
-
-                        <x-show :show="$show"/>
-
-                    @endif
-
-                @endforeach
-
-            @else
-                <p>{{ __('def.no_show') }}</p>
-            @endif
-
-        </div>
-
-        <h2 class="title-bar--on-card">
             {{ __('pages.show_title') }}
         </h2>
 

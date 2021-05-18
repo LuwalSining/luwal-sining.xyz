@@ -385,6 +385,14 @@ footer {
 
 }
 
+.show__credits {
+    text-align: center;
+
+    @media (min-width: 940px) {
+        text-align: left;
+    }
+}
+
 .seeShow {
     background-color: #EAAF07;
     color: #000;

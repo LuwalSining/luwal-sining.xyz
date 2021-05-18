@@ -9,7 +9,7 @@ return [
     //SHOWS
     'previewtitle_show' => 'OUR PERFORMANCES',
     'previewtext_show' => 'Contemporary experiments and explorations in dance, music, and theatre.',
-    'show_title' => 'COMPLETE CATALOGUE',
+    'show_title' => 'ALL SHOWS',
     'future' => 'UPCOMING SHOWS',
     'current' => 'NOW SHOWING',
     'past' => 'PAST SHOWS',

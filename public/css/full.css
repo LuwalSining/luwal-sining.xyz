@@ -1,14 +1,8 @@
-@media (min-width: 850px){
+@media (min-width: 850px) {
 
     .s1 {
         display: grid;
         grid-template-columns: 30% 70%;
-    }
-
-    .pcalendar {
-        width: calc(100% - 10px);
-        margin-right: 0;
-        margin-top: 0;
     }
 
     .navBar {
@@ -18,6 +12,30 @@
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
         box-shadow: none;
+    }
+
+    .navBar {
+        top: 3px;
+        background-color: transparent;
+        width: 0;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .navCont {
+        position: fixed;
+        right: 17px;
+    }
+
+    .headerWrap {
+        margin-left: 17px;
+    }
+
+    .navCont div {
+        display: inline-block;
+        margin-right: 12px;
+        width: 32px;
     }
 
     /* SCROLLBAR */
