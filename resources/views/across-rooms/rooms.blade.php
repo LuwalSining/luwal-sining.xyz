@@ -70,22 +70,22 @@
 
  <div class="rooms__container">
      <div class="rooms__door">
-         <a target="_blank" href="#">
+         <a target="_blank" href="https://drive.google.com/file/d/1iEk3XzEv_H0TfG3uLcet1BJZIMXz0YEw/view?usp=sharing">
              <img src="{{ asset('img/rooms/Room 1.jpg') }}" alt="Room 1 Door">
          </a>
      </div>
      <div class="rooms__door">
-         <a target="_blank" href="#">
+         <a target="_blank" href="https://drive.google.com/file/d/1C4tccq8vmROrAkaiz6h07O4vWOzL0Hqy/view?usp=sharing">
             <img src="{{ asset('img/rooms/Room 2.png') }}" alt="Room 2 Door">
          </a>
      </div>
      <div class="rooms__door">
-         <a target="_blank" href="https://youtu.be/JFqb48qKuWY">
+         <a target="_blank" href="https://youtu.be/a1GZ0y1Gut0">
             <img src="{{ asset('img/rooms/Room 3.png') }}" alt="Room 3 Door">
          </a>
      </div>
      <div class="rooms__door">
-         <a target="_blank" href="https://youtu.be/yTj02mVQ8rs">
+         <a target="_blank" href="https://youtu.be/8QqpmsAALyc">
             <img src="{{ asset('img/rooms/Room 4.jpg') }}" alt="Room 4 Door">
          </a>
      </div>
