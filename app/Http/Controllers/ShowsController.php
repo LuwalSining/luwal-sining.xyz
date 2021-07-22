@@ -22,17 +22,22 @@ class ShowsController extends Controller {
     }
 
     public function show($lang, $show) {
+
         $shows = Show::where('slug', $show)->get();
+
         foreach($shows as $data){
             $id = $data->id;
         }
+
         $media = Media::where('show_id', $id)->get();
         $performance = Performance::where('show_id', $id)->get();
+
         return view('show', [
             'sdata' => $shows,
             'mdata' => $media,
             'pdata' => $performance,
         ]);
+
     }
 
     // DASHBOARD SECTION ONLY
@@ -143,13 +148,13 @@ class ShowsController extends Controller {
             'slug' => $slug,
         ]);
 
-        Media::where('show_id', $show->id)->update([
-            'file' => $request->embed,
-        ]);
+        Media::where('show_id', $show->id)
+            ->update(['file' => $request->embed,])
+            ->save();
 
-        Performance::where('show_id', $show->id)->update([
-            'link' => $request->link,
-        ]);
+        Performance::where('show_id', $show->id)
+            ->update(['link' => $request->link,])
+            ->save();
 
         return redirect()->back();
 
