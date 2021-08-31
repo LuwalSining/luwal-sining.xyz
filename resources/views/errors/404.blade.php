@@ -20,10 +20,12 @@
 
 @section('content')
 
-    <div class="pic_dir mdc-elevation--z2" style="height: 320px">
+    <div class="banner--directory">
 
-        <h2>404 PAGE NOT FOUND!</h2>
-        <h4>Yikes!</h4>
+        <div class="banner__text">
+            <h2>404 PAGE NOT FOUND!</h2>
+            <h4>Yikes!</h4>
+        </div>
 
     </div>
 

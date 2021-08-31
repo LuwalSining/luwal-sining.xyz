@@ -1,0 +1,217 @@
+@use '~@growstocks/stack/Core/Theme';
+@use '~@growstocks/stack/Core/Typography';
+@use '~@growstocks/stack/Core/Elevation';
+@use '~@growstocks/stack/Core/Color';
+
+@use '~@growstocks/stack/Components/SCHeader';
+@use '~@growstocks/stack/Components/SCCard';
+@use '~@growstocks/stack/Components/SCButton';
+@use '~@growstocks/stack/Components/SCProfile';
+@use '~@growstocks/stack/Components/SCAppbar';
+
+@use 'themes/card-themes';
+@import 'modules/banner';
+@import 'modules/footer';
+
+:root {
+    @include Theme.config(
+        #343434,
+        #ffae00,
+    );
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@include Typography.config(
+    $global-font: 'Open Sans'
+);
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100% !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sc-theme--primary-dark);
+    color: var(--sc-theme--on-primary);
+}
+
+%wrap--content {
+    width: calc(100% - 20px);
+    max-width: 970px;
+    margin: 0 auto;
+}
+
+.wrap--content {
+    @extend %wrap--content;
+    padding: 75px 0 25px 0;
+}
+
+.wrap--content--no-margin-top {
+    @extend %wrap--content;
+    padding: 25px 0 25px 0;
+}
+
+.container--flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: wrap row;
+    gap: 20px;
+}
+
+.container--grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 17px;
+    width: 100%;
+
+    @media (min-width: 546px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+.container--grid-home {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin: 27px 0 17px 0;
+
+    @media (min-width: 546px) {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.category-container {
+    display: grid;
+    grid-gap: 1rem;
+    height: max-content;
+
+    @media (min-width: 546px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Small
+@include SCButton.render();
+@include SCCard.render(
+    $color-theme: (
+        card-themes.$default
+    )
+);
+.sc-card--youtube {
+    @include Color.apply('filled', card-themes.$youtube);
+}
+.sc-card--facebook {
+    @include Color.apply('filled', card-themes.$facebook);
+}
+.sc-card--soundcloud {
+    @include Color.apply('filled', card-themes.$soundcloud);
+}
+
+@include SCProfile.render();
+.sc-profile .sc-profile__container {
+    .sc-profile__actions {
+        margin-top: -10px !important;
+    }
+}
+
+// Medium
+@include SCHeader.render();
+.sc-header__text {
+    padding: 0.5rem 0.7rem !important;
+    * {
+        font-size: 24px;
+    }
+}
+@include SCAppbar.render($nav-contents: 3);
+
+
+// Custom
+
+.banner--home {
+    --banner-fill: #764635;
+    --banner-ink: #fff;
+
+    @extend %banner;
+    @include Elevation.apply(3);
+}
+.banner--shows {
+    --banner-fill: #3f5227;
+    --banner-ink: #fff;
+
+    @extend %banner;
+    @include Elevation.apply(3);
+}
+
+.banner--show {
+    --banner-fill: #3f5227;
+    --banner-ink: #fff;
+
+    @extend %banner;
+    @include Elevation.apply(3);
+
+    padding: 0!important;
+}
+.banner--directory {
+    --banner-fill: #000;
+    --banner-ink: #fff;
+
+    @extend %banner;
+    @include Elevation.apply(3);
+}
+
+
+.footer {
+    --footer-fill: var(--sc-theme--primary);
+    --footer-ink: #fff;
+
+    @extend %footer;
+
+    .footer__copyright {
+        font-size: Typography.px-to-rem(14px);
+    }
+}
+
+.title-bar {
+    margin: 0 0 10px 0;
+}
+
+.show__info {
+    margin: 0.7rem 0 2.3rem 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.show__actions {
+    margin-top: 0.7rem;
+}

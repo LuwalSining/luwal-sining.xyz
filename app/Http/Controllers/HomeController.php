@@ -13,7 +13,7 @@ class HomeController
     public function index() {
 
         $shows = Show::orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(4);
-        return view('home', [
+        return view('main.home', [
             'shows' => $shows
         ]);
 

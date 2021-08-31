@@ -13,7 +13,7 @@ return [
     'tos' => 'Terms of Use',
     'socials' => 'SOCIAL MEDIA',
     'lang' => 'LANGUAGE',
-    'copyright' => 'Copyright Luwal Sining-Pagganap © 2021',
+    'copyright' => 'Copyright © 2021 - Luwal Sining-Pagganap',
 
     'showmore' => 'Show More...',
     'detmore' => 'Click for more details...',

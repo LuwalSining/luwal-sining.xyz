@@ -2,40 +2,83 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Links;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index() {
+    public function updateBio(Request $request)
+    {
 
-        $info = User::paginate(1);
+        $user = auth()->user();
 
-        return view('dashboard.profile', [
-            'info' => $info
+        $request->validate([
+            'bio' => 'required',
         ]);
 
-    }
-
-    public function update(Request $request) {
-
-        /*$request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        User::where('id', $user->id)->update([
+            'bio' => $request->bio,
         ]);
-
-        $imageName = time().'.'.$request->image->extension();
-
-        $request->image->move(public_path('images'), $imageName);
 
         // Store $imageName name in DATABASE from HERE
-
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);*/
+        return back()->with('success', 'Successfully updated profile');
 
     }
 
-    public function edit(Request $request) {
+    public function updatePfp(Request $request)
+    {
 
+        $user = auth()->user();
+
+        $request->validate([
+            'pfp' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPEG,JPG,PNG,GIF,SVG|max:2048',
+        ]);
+
+        $imageName = $user->id . '-' . $user->department . '.' . $request->pfp->extension();
+
+        $request->pfp->move(public_path('img/pfp'), $imageName);
+
+        User::where('id', $user->id)->update([
+            'image' => $imageName
+        ]);
+
+        // Store $imageName name in DATABASE from HERE
+        return back()->with('success', 'Successfully updated profile');
+
+    }
+
+    public function updateRole(Request $request)
+    {
+
+        $user = auth()->user();
+
+        $request->validate([
+            'role' => 'required',
+        ]);
+
+        User::where('id', $user->id)->update([
+            'department' => $request->role,
+        ]);
+
+        return redirect()->back();
+
+    }
+
+    public function updateLinks(Request $request)
+    {
+
+        $user = auth()->user();
+
+        Links::where('user_id', $user->id)->update([
+            'facebook' => $request->fb,
+            'twitter' => $request->twt,
+            'instagram' => $request->ig,
+            'youtube' => $request->yt,
+            'linkedin' => $request->linkedin,
+            'website' => $request->website
+        ]);
+
+        return redirect()->back();
     }
 }

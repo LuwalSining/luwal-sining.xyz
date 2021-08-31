@@ -14,8 +14,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.4",
-        "yish/imgur": "^2.0"
+        "yish/imgur": "^2.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

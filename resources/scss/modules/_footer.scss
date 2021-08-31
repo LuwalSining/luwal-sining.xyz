@@ -1,0 +1,29 @@
+@use '~@growstocks/stack/Core/Theme';
+
+%footer {
+    padding: 1.5em 1em 70px 1em;
+    background: var(--footer-fill);
+    color: var(--footer-ink);
+    margin-bottom: 50px;
+    margin-top: auto;
+    text-align: center;
+
+    @media (min-width: Theme.get-breakpoint('large')) {
+        padding: 1.5em 2em;
+        margin-bottom: 0;
+    }
+
+    .footer__lang {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+
+        .footer__spacer {
+            margin: 0 5px;
+        }
+
+        .active {
+            font-weight: 700 !important;
+        }
+    }
+}

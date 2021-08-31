@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('department')->default('user');
-            $table->text('bio')->default('Hello!');
+            $table->text('bio')->default('Hello there!');
             $table->text('image')->default('favicon.png');
-            $table->boolean('isUpload')->default(0);
+            $table->json('permissions')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

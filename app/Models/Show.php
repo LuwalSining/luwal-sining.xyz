@@ -17,6 +17,7 @@ class Show extends Model
         'poster',
         'slug',
         'status',
+        'watch_code'
     ];
 
     protected function media() {

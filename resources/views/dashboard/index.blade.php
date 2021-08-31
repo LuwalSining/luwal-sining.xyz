@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.app')
+@extends('layouts.portal')
 
 @section('meta')
     <title>DASHBOARD - Luwal Sining-Pagganap</title>
@@ -10,98 +10,144 @@
 
 @section('content')
 
-    <div class="contentWrap">
-        {{--<p class="label mdc-elevation--z1" style="width: calc(100% - 14px); background-color: #c80003; border-radius: 5px; color: white; padding: 7px; font-size: 14px; margin-bottom: 20px">(NOTE: Due to the current system that is available at the moment, profile photos are handled manually by the website developer; considering this, it might take a few hours to successfully update your profile photo. This will be changed later down the line so please bare with it. :<  )</p>--}}
-        <div class="s1">
-            <div class="h1" style="margin-bottom: 15px">
-                <div class="titleBar" style="border-bottom-color: #9A7E5C">
-                    <h3 style="color: #fff!important;">MY ARTIST PROFILE</h3>
-                </div>
+    <section class="dashboard-grid">
+        <div class="h1">
+            <div class="title-bar">
+                <h3>MY ARTIST PROFILE</h3>
+            </div>
 
-                @livewire('show-profile')
+            @if(count($userData))
+                @foreach($userData as $info)
+                    <div class="user-profile">
+                        <div class="user-profile__img">
+                            <img src="{{ asset('img/pfp/' . $info->image) }}" alt="{{ $info->name }}'s photo">
+                        </div>
+                        <div class="user-profile__info">
+                            <h3>{{ $info->name }}</h3>
+                            <small>{{ $info->department }} Department</small>
+                            <p>{{ $info->bio }}</p>
+                        </div>
+                        <div class="user-profile__actions">
+                            <a href="{{ route('dir', ['en']) }}/{{ str_replace(' ', '+', $info->name) }}" target="_blank">
+                                <button type="submit" class="sc-button sc-button--outlined">
+                                    <span class="sc-button__label">GO TO PROFILE</span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
+        </div>
+
+        <div class="h2">
+
+            <div class="title-bar">
+                <h3>EDIT ARTIST PROFILE</h3>
+            </div>
+
+            <div class="user-edit">
+                <form action="{{ route('profile.bio') }}" method="post">
+                    @csrf
+
+                    @foreach($userData as $data)
+
+                        <div class="sc-text-field">
+                            <textarea class="sc-text-field__input" id="bio" placeholder="I am a..." rows="10" name="bio">{{ $data->bio  }}</textarea>
+                            <label class="sc-text-field__label" for="bio">Edit biography</label>
+                            <p class="sc-text-field__helper">@error('bio'){{ $message }}@enderror</p>
+                        </div>
+
+                    @endforeach
+
+                    <button class="sc-button sc-button--filled" type="submit" name="publish">
+                        <span class="sc-button__label">Update Bio</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="user-edit">
+
+                <form action="{{ route('profile.pfp') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+
+                    @foreach($userData as $data)
+
+                        <div class="sc-text-field">
+                            <input class="sc-text-field__input" id="pfp" type="file" name="pfp">
+                            <label class="sc-text-field__label" for="pfp">Edit profile picture</label>
+                            <p class="sc-text-field__helper">@error('pfp'){{ $message }}@enderror</p>
+                        </div>
+
+                    @endforeach
+
+                    <button class="sc-button sc-button--filled" type="submit" name="publish">
+                        <span class="sc-button__label">Update Profile Picture</span>
+                    </button>
+                </form>
 
             </div>
 
-            <div class="h2" style="width: calc(100% - 25px)">
+            <div class="user-edit">
+                <form action="{{ route('profile.role') }}" method="post">
+                    @csrf
 
-                <div class="titleBar" style="border-bottom-color: #9A7E5C">
-                    <h3 style="color: #fff!important;">EDIT ARTIST PROFILE</h3>
-                </div>
-
-                <div class="formCont mdc-elevation--z1" style="margin-bottom: 10px;">
-
-                    <form action="{{ route('profile.edit') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-
-                        @foreach($userData as $data)
-
-                            <label class="label" for="bio">Edit biography</label>
-                            <p class="error">
-                                @error('bio')
-                                {{ $message }}<br>
-                                @enderror
-                            </p>
-                            <textarea placeholder="I am a..." rows="10" name="bio">{{ $data->bio }}</textarea>
-
-                            <label class="label" for="role">Edit profile picture</label>
-                            <p class="error">
-                                @error('pfp')
-                                {{ $message }}<br>
-                                @enderror
-                            </p>
-                            <input type="text" name="pfp" value="{{ $data->image }}" placeholder="Example: https://imgur.com/ewm7Xbd.jpg">
-
-                        @endforeach
-
-                        <button name="publish" type="submit">PUBLISH</button>
-                    </form>
-                </div>
-
-                <div class="formCont mdc-elevation--z1" style="margin-bottom: 10px;">
-
-                    <p class="error">
-                        @error('role')
-                        {{ $message }}<br>
-                        @enderror
-                    </p>
-
-                    <form action="{{ route('profile.role') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-
-                        <p class="label" for="role">Edit art department</p>
-                        <select name="role">
+                    <div class="sc-text-field">
+                        <select class="sc-text-field__input" id="role" name="role">
                             <option class="selector">--SELECT ROLE--</option>
                             <option value="Dance">Dance Department</option>
                             <option value="Music">Music Department</option>
                             <option value="Theatre Arts">Theatre Department</option>
                             <option value="Vocal">Vocal Department</option>
                         </select>
-                        <button type="submit" name="publish">PUBLISH</button>
-                    </form>
-                </div>
-                <div class="formCont mdc-elevation--z1">
-                    <p class="error">
+                        <label class="sc-text-field__label" for="role">Edit art department</label>
+                        <p class="sc-text-field__helper">@error('role'){{ $message }}@enderror</p>
+                    </div>
 
-                    </p>
-                    <form action="{{ route('profile.links') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+                    <button class="sc-button sc-button--filled" type="submit" name="publish">
+                        <span class="sc-button__label">Update Role</span>
+                    </button>
+                </form>
+            </div>
 
-                        <p class="label">Social Links</p>
-                        @foreach($linkData as $link)
-                            <input type="text" name="fb" value="{{ $link->facebook }}" placeholder="Facebook Page Link w/o @ (optional)">
-                            <input type="text" name="twt" value="{{ $link->twitter }}" placeholder="Twitter Handle w/o @ (optional)">
-                            <input type="text" name="ig" value="{{ $link->instagram }}" placeholder="Instagram Handle w/o @ (optional)">
-                            <input type="text" name="yt" value="{{ $link->youtube }}" placeholder="Youtube Channel Link (optional)">
-                            <input type="text" name="linkedin" value="{{ $link->linkedin }}" placeholder="LinkedIn Link (optional)">
-                            <input type="text" name="website" value="{{ $link->website }}" placeholder="Personal Website Link (optional)">
-                        @endforeach
+            <div class="user-edit">
+                <form action="{{ route('profile.links') }}" method="post">
+                    @csrf
+                    @foreach($linkData as $link)
+                        <div class="sc-text-field">
+                            <input id="fb" name="fb" class="sc-text-field__input" type="text" value="{{ $link->facebook }}" placeholder="a">
+                            <label for="fb" class="sc-text-field__label">Facebook Link</label>
+                        </div>
+                        <div class="sc-text-field">
+                            <input id="twt" name="twt" class="sc-text-field__input" type="text" value="{{ $link->twitter }}" placeholder="b">
+                            <label for="twt" class="sc-text-field__label">Twitter Handle (no @)</label>
+                        </div>
+                        <div class="sc-text-field">
+                            <input id="ig" name="ig" class="sc-text-field__input" type="text" value="{{ $link->instagram }}" placeholder="b">
+                            <label for="ig" class="sc-text-field__label">Instagram Handle (no @)</label>
+                        </div>
+                        <div class="sc-text-field">
+                            <input id="yt" name="yt" class="sc-text-field__input" type="text" value="{{ $link->youtube }}" placeholder="b">
+                            <label for="yt" class="sc-text-field__label">Youtube Channel</label>
+                        </div>
+                        <div class="sc-text-field">
+                            <input id="linkedin" name="linkedin" class="sc-text-field__input" type="text" value="{{ $link->linkedin }}" placeholder="b">
+                            <label for="linkedin" class="sc-text-field__label">LinkedIn</label>
+                        </div>
+                        <div class="sc-text-field">
+                            <input id="website" name="website" class="sc-text-field__input" type="text" value="{{ $link->website }}" placeholder="b">
+                            <label for="website" class="sc-text-field__label">Personal website link</label>
+                        </div>
+                    @endforeach
 
-                        <button type="submit" name="publish">PUBLISH</button>
-                    </form>
-                </div>
+                    <button class="sc-button sc-button--filled" type="submit" name="publish">
+                        <span class="sc-button__label">Update Links</span>
+                    </button>
+
+                </form>
             </div>
 
         </div>
-    </div>
+    </section>
 
 @endsection

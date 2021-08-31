@@ -10,7 +10,7 @@ class DirectoryController extends Controller
 {
     public function index() {
         $users = User::orderBy('department', 'asc')->orderBy('name', 'asc')->get();
-        return view('directory', [
+        return view('main.directory', [
             'data' => $users
         ]);
     }
@@ -23,7 +23,7 @@ class DirectoryController extends Controller
             $id = $get->id;
         }
         $links = Links::where('user_id', $id)->get();
-        return view('artist', [
+        return view('main.artist', [
             'data' => $user,
             'links' => $links
         ]);

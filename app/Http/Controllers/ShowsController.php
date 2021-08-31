@@ -16,12 +16,12 @@ class ShowsController extends Controller {
 
         $all = Show::orderBy('date', 'asc')->get();
 
-        return view('shows', [
+        return view('main.shows', [
             'shows' => $all,
         ]);
     }
 
-    public function show($lang, $show) {
+    public function index_single($lang, $show) {
 
         $shows = Show::where('slug', $show)->get();
 
@@ -32,7 +32,7 @@ class ShowsController extends Controller {
         $media = Media::where('show_id', $id)->get();
         $performance = Performance::where('show_id', $id)->get();
 
-        return view('show', [
+        return view('main.show', [
             'sdata' => $shows,
             'mdata' => $media,
             'pdata' => $performance,
@@ -40,9 +40,11 @@ class ShowsController extends Controller {
 
     }
 
+    //
     // DASHBOARD SECTION ONLY
+    //
 
-    public function performance() {
+    public function indexInDashboard() {
 
         $shows = Show::get();
         foreach($shows as $data){
@@ -50,14 +52,14 @@ class ShowsController extends Controller {
         }
         $media = Media::get();
         $performance = Performance::get();
-        return view('dashboard.edit_show', [
+        return view('dashboard.edit-shows', [
             'sdata' => $shows,
             'mdata' => $media,
             'pdata' => $performance,
         ]);
     }
 
-    public function indivShow($show) {
+    public function indexSingleInDashboard($show) {
 
         $shows = Show::where('slug', $show)->get();
 
@@ -86,24 +88,26 @@ class ShowsController extends Controller {
 
         $media = Media::where('show_id', $id)->get();
         $performance = Performance::where('show_id', $id)->get();
-        return view('dashboard.edit_show_edit', [
+        return view('dashboard.edit-show', [
             'sdata' => $shows,
             'mdata' => $media,
             'pdata' => $performance,
         ]);
     }
 
-    public function addShow(Request $request) {
+    public function createShow(Request $request) {
 
         $request->validate([
             'name' => 'required',
             'date' => 'required',
             'logline' => 'required',
             'credits' => 'required',
-            'poster' => 'required',
-            //'embed' => 'required',
-            //'link' => 'required',
+            'poster' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPEG,JPG,PNG,GIF,SVG|max:2048',
+            'watchCode' => 'required'
         ]);
+
+        $imageName = $request->name . '-' . $request->date . '.' . $request->poster->extension();
+        $request->poster->move(public_path('img/shows'), $imageName);
 
         $str = $request->name.' '.$request->date;
         $slugRAW = str_replace(' ', '-', $str);
@@ -114,49 +118,58 @@ class ShowsController extends Controller {
             'date' => $request->date,
             'logline' => $request->logline,
             'credits' => $request->credits,
-            'poster' => $request->poster,
+            'watch_code' => $request->watchCode,
+            'poster' => $imageName,
             'slug' => $slug,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Successfully updated profile');
 
     }
 
-    public function editShow(Show $show, Request $request) {
+    public function updateShow(Show $show, Request $request) {
 
         $request->validate([
             'name' => 'required',
             'date' => 'required',
             'logline' => 'required',
             'credits' => 'required',
-            'poster' => 'required',
-            //'embed' => 'required',
-            //'link' => 'required',
+            'embed' => 'required'
         ]);
 
-        $str = $request->name.' '.$request->date;
-        $slugRAW = str_replace(' ', '-', $str);
-        $slug = strtolower($slugRAW);
+        $str = str_replace(' ', '-',  $request->name).'-'.$request->date;
+        $slug = strtolower($str);
 
         Show::where('id', $show->id)->update([
             'name' => $request->name,
             'date' => $request->date,
             'logline' => $request->logline,
             'credits' => $request->credits,
-            'poster' => $request->poster,
             'status' => $request->status,
-            'slug' => $slug,
+            'slug' => $slug
         ]);
 
-        Media::where('show_id', $show->id)
-            ->update(['file' => $request->embed,])
-            ->save();
-
         Performance::where('show_id', $show->id)
-            ->update(['link' => $request->link,])
+            ->update(['link' => $request->perfLink,])
             ->save();
 
         return redirect()->back();
 
+    }
+
+    public function updateShowPoster(Show $show, Request $request)
+    {
+        $request->validate([
+            'poster' => 'required'
+        ]);
+
+        $imageName = $request->name . '-' . $request->date . '.' . $request->poster->extension();
+        $request->poster->move(public_path('img/shows'), $imageName);
+
+        Show::where('id', $show->id)->update([
+            'poster' => $imageName,
+        ]);
+
+        return redirect()->back();
     }
 }

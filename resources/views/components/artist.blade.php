@@ -1,15 +1,17 @@
-<a href="{{ route('dir', app()->getLocale()) }}/{{ str_replace(' ', '+', $user->name) }}">
-    <div class="card mdc-elevation--z2">
-
-        <div class="card__img">
-            <img src="{{ $user->image }}" alt="show_media">
-        </div>
-
-        <div class="card__info">
-            <h3>{{ $user->name }}</h3>
-            <p>{{ $user->department }} Department</p>
-            <p>{{ __('def.detmore') }}</p>
-        </div>
-
+<div class="sc-profile sc-light-blue sc-elevation--z3">
+    <div class="sc-profile__img">
+        <img src="{{ asset('img/pfp/' . $user->image) }}" alt="{{ $user->name }}'s profile image">
     </div>
-</a>
+    <div class="sc-profile__container">
+        <div class="wrap--text">
+            <h2>{{ $user->name }}</h2>
+            <p class="sc-profile__text">{{ $user->department }}</p>
+            <div class="sc-profile__actions">
+                <a class="sc-profile__action sc-button" href="{{ route('dir', app()->getLocale()) }}/{{ str_replace(' ', '+', $user->name) }}">
+                    <i class="sc-button__icon material-icons-outlined" aria-hidden="true">visibility</i>
+                    <span class="sc-button__label">Visit profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
