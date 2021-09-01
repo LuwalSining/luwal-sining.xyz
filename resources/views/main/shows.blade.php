@@ -28,19 +28,23 @@
 
         <div class="container--grid">
 
-            @foreach($shows as $show)
+            @if($shows->count())
 
-                @if($show->status == 2)
+                @foreach($shows as $show)
 
-                    <x-show :show="$show"/>
+                    @if($show->status == 2)
 
-                @else
+                        <x-show :show="$show"/>
 
-                    <p>{{ __('def.no_show') }}</p>
+                    @endif
 
-                @endif
+                @endforeach
 
-            @endforeach
+            @else
+
+                <p>{{ __('def.no_show') }}</p>
+
+            @endif
 
         </div>
 
@@ -50,19 +54,23 @@
 
         <div class="container--grid">
 
-            @foreach($shows as $show)
+            @if($shows->count())
 
-                @if($show->status == 1)
+                @foreach($shows as $show)
 
-                    <x-show :show="$show"/>
+                    @if($show->status == 1)
 
-                @else
+                        <x-show :show="$show"/>
 
-                    <p>{{ __('def.no_show') }}</p>
+                    @endif
 
-                @endif
+                @endforeach
 
-            @endforeach
+            @else
+
+                <p>{{ __('def.no_show') }}</p>
+
+            @endif
 
         </div>
 
@@ -73,13 +81,17 @@
         <div class="container--grid">
 
             @if($shows->count())
+
                 @foreach($shows as $show)
 
                     <x-show :show="$show"/>
 
                 @endforeach
+
             @else
+
                 <p>{{ __('def.no_show') }}</p>
+
             @endif
 
         </div>
