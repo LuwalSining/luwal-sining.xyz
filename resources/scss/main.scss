@@ -110,7 +110,7 @@ body {
 
 .category-container {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 1em;
     height: max-content;
 
     @media (min-width: 546px) {
@@ -118,12 +118,39 @@ body {
     }
 }
 
+.artist-container {
+    display: grid;
+    grid-gap: 1em;
+    height: max-content;
+
+    @media (min-width: 546px) {
+        grid-template-columns: 300px 1fr;
+    }
+
+    .sc-card--artist {
+        padding: 0.7rem;
+
+        .sc-card__img {
+            height: max-content !important;
+        }
+
+        .sc-card__content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            & > * + * {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
 // Small
 @include SCButton.render();
 @include SCCard.render(
-    $color-theme: (
-        card-themes.$default
-    )
+    $color-theme: card-themes.$default,
+    $shape-theme: card-themes.$default-shape
 );
 .sc-card--youtube {
     @include Color.apply('filled', card-themes.$youtube);

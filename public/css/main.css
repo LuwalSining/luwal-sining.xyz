@@ -217,7 +217,7 @@ body {
 
 .category-container {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 1em;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -226,6 +226,35 @@ body {
   .category-container {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.artist-container {
+  display: grid;
+  grid-gap: 1em;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+@media (min-width: 546px) {
+  .artist-container {
+    grid-template-columns: 300px 1fr;
+  }
+}
+.artist-container .sc-card--artist {
+  padding: 0.7rem;
+}
+.artist-container .sc-card--artist .sc-card__img {
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
+  height: max-content !important;
+}
+.artist-container .sc-card--artist .sc-card__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.artist-container .sc-card--artist .sc-card__content > * + * {
+  margin-left: 0.5rem;
 }
 
 .sc-button {
@@ -398,11 +427,11 @@ body {
   margin: 0;
   transition: all 0.1s linear;
   color: #fff;
-  border: 1px solid #727272;
-  background: #727272;
+  border: 1px solid #636363;
+  background: #636363;
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
