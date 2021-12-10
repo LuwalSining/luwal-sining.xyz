@@ -1,13 +1,13 @@
-@use '~@growstocks/stack/Core/Theme';
-@use '~@growstocks/stack/Core/Typography';
-@use '~@growstocks/stack/Core/Elevation';
-@use '~@growstocks/stack/Core/Color';
+@use '~@growstocks/stack/SCCore/Theme';
+@use '~@growstocks/stack/SCCore/Typography';
+@use '~@growstocks/stack/SCCore/Elevation';
+@use '~@growstocks/stack/SCCore/Color';
 
-@use '~@growstocks/stack/Components/SCHeader';
-@use '~@growstocks/stack/Components/SCCard';
-@use '~@growstocks/stack/Components/SCButton';
-@use '~@growstocks/stack/Components/SCProfile';
-@use '~@growstocks/stack/Components/SCAppbar';
+@use '~@growstocks/stack/SCHeader';
+@use '~@growstocks/stack/SCCard';
+@use '~@growstocks/stack/SCButton';
+@use '~@growstocks/stack/SCProfile';
+@use '~@growstocks/stack/SCAppbar';
 
 @use 'themes/card-themes';
 @import 'modules/banner';
@@ -22,7 +22,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 @include Typography.config(
-    $global-font: 'Open Sans'
+    $global: (
+        family: 'Open Sans'
+    )
 );
 
 * {
@@ -130,7 +132,7 @@ body {
     .sc-card--artist {
         padding: 0.7rem;
 
-        .sc-card__img {
+        .sc-card__media {
             height: max-content !important;
         }
 
@@ -153,13 +155,13 @@ body {
     $shape-theme: card-themes.$default-shape
 );
 .sc-card--youtube {
-    @include Color.apply('filled', card-themes.$youtube);
+    @include Color.apply('card', card-themes.$youtube, 'filled', 'default');
 }
 .sc-card--facebook {
-    @include Color.apply('filled', card-themes.$facebook);
+    @include Color.apply('card', card-themes.$facebook, 'filled', 'default');
 }
 .sc-card--soundcloud {
-    @include Color.apply('filled', card-themes.$soundcloud);
+    @include Color.apply('card', card-themes.$soundcloud, 'filled', 'default');
 }
 
 @include SCProfile.render();
@@ -170,6 +172,7 @@ body {
 }
 
 // Medium
+@include SCAppbar.render($settings: (items: 3));
 @include SCHeader.render();
 .sc-header__text {
     padding: 0.5rem 0.7rem !important;
@@ -177,7 +180,6 @@ body {
         font-size: 24px;
     }
 }
-@include SCAppbar.render($nav-contents: 3);
 
 
 // Custom

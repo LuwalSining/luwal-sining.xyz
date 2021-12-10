@@ -1,6 +1,6 @@
 <div class="sc-card">
 
-    <div class="sc-card__img">
+    <div class="sc-card__media">
         <img src="{{ asset('img/shows') }}/{{ $show->poster }}" alt="show_media">
     </div>
 

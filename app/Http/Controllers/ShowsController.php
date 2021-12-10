@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Performance;
@@ -25,7 +24,7 @@ class ShowsController extends Controller {
 
         $shows = Show::where('slug', $show)->get();
 
-        foreach($shows as $data){
+        foreach($shows as $data) {
             $id = $data->id;
         }
 

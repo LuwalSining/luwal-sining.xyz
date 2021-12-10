@@ -24,7 +24,7 @@ class ProfileController extends Controller
         // Store $imageName name in DATABASE from HERE
         return back()->with('success', 'Successfully updated profile');
 
-    }
+	}
 
     public function updatePfp(Request $request)
     {

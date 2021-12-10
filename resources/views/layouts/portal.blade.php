@@ -41,13 +41,13 @@
                 <div class="sc-appbar__item {{ Request::segment(2) == '' ? 'active' : '' }}" data-tooltip="Dashboard">
                     <a href="{{ route('dashboard') }}">
                         <p class="sc-appbar__item__icon material-icons">dashboard</p>
-                        <p class="sc-appbar__item__text">Dashboard</p>
+                        <p class="sc-appbar__item__label">Dashboard</p>
                     </a>
                 </div>
                 <div class="sc-appbar__item" data-tooltip="Logout">
                     <a href="{{ route('logout') }}">
                         <p class="sc-appbar__item__icon material-icons">logout</p>
-                        <p class="sc-appbar__item__text">Logout</p>
+                        <p class="sc-appbar__item__label">Logout</p>
                     </a>
                 </div>
             </div>

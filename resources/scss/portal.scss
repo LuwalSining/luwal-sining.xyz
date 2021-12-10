@@ -1,25 +1,38 @@
-@use '../../node_modules/@growstocks/stack/Core/Theme';
-@use '../../node_modules/@growstocks/stack/Core/Typography';
-@use '../../node_modules/@growstocks/stack/Core/Elevation';
-@use '../../node_modules/@growstocks/stack/Core/Color';
-@use '../../node_modules/@growstocks/stack/Core/Shape';
+@use '~@growstocks/stack/SCCore/Theme';
+@use '~@growstocks/stack/SCCore/Typography';
+@use '~@growstocks/stack/SCCore/Elevation';
+@use '~@growstocks/stack/SCCore/Color';
+@use '~@growstocks/stack/SCCore/Shape';
 
-@use '../../node_modules/@growstocks/stack/Components/SCAppbar';
-@use '../../node_modules/@growstocks/stack/Components/SCButton';
-@use '../../node_modules/@growstocks/stack/Components/SCCard';
-@use '../../node_modules/@growstocks/stack/Components/SCHeader';
-@use '../../node_modules/@growstocks/stack/Components/SCProfile';
-@use '../../node_modules/@growstocks/stack/Components/SCTextField';
+@use '~@growstocks/stack/SCAppbar';
+@use '~@growstocks/stack/SCButton';
+@use '~@growstocks/stack/SCCard';
+@use '~@growstocks/stack/SCHeader';
+@use '~@growstocks/stack/SCProfile';
+@use '~@growstocks/stack/SCTextField';
 
 
 :root {
     @include Theme.config(
-        #343434,
-        #ffae00,
+        $primary: (
+            'light': #454545,
+            'default': #343434,
+            'dark': #232323
+        ),
+        $secondary: (
+            'default': #ffae00
+        ),
         $input: #c4c4c4,
         $on-input: #000
     );
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@include Typography.config(
+    $global: (
+        family: 'Open Sans'
+    )
+);
 
 * {
     box-sizing: inherit;
@@ -76,7 +89,7 @@ a {
 }
 
 @include SCHeader.render();
-@include SCAppbar.render($nav-contents: 2);
+@include SCAppbar.render($settings: (items: 2));
 @include SCButton.render();
 @include SCCard.render();
 @include SCTextField.render();
@@ -100,11 +113,11 @@ a {
     padding: 0.7rem 1rem;
     margin-bottom: 0.7rem;
 
-    @include Color.apply('filled', (
+    @include Color.apply('user-profile', (
         'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary))
-    ));
+    ), 'filled', 'default');
 
-    @include Shape.apply((
+    @include Shape.apply('user-profile', (
         'shape': rounded,
         'radius': 0.5rem,
     ));
@@ -142,11 +155,11 @@ a {
     padding: 1rem;
     margin-bottom: 1rem;
 
-    @include Color.apply('filled', (
+    @include Color.apply('user-edit', (
         'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary))
-    ));
+    ), 'filled', 'default');
 
-    @include Shape.apply((
+    @include Shape.apply('user-edit', (
         'shape': rounded,
         'radius': 0.5rem,
     ));

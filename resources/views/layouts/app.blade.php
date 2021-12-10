@@ -9,7 +9,7 @@
 
     <!-- LIBS -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon.png') }}">
@@ -42,21 +42,21 @@
                 <div class="sc-appbar__item {{ Request::segment(2) == '' ? 'active' : '' }}" data-tooltip="{{ __('def.home') }}">
                     <a href="{{ route('home', App::getLocale()) }}">
                         <p class="sc-appbar__item__icon material-icons">home</p>
-                        <p class="sc-appbar__item__text">{{ __('def.home') }}</p>
+                        <p class="sc-appbar__item__label">{{ __('def.home') }}</p>
                     </a>
                 </div>
 
                 <div class="sc-appbar__item {{ Request::segment(2) == 'shows' ? 'active' : '' }}" data-tooltip="{{ __('def.shows') }}">
                     <a href="{{ route('shows', App::getLocale()) }}">
                         <p class="sc-appbar__item__icon material-icons">theater_comedy</p>
-                        <p class="sc-appbar__item__text">{{ __('def.shows') }}</p>
+                        <p class="sc-appbar__item__label">{{ __('def.shows') }}</p>
                     </a>
                 </div>
 
                 <div class="sc-appbar__item {{ Request::segment(2) == 'directory' ? 'active' : '' }}" data-tooltip="{{ __('def.directory') }}">
                     <a href="{{ route('dir', App::getLocale()) }}">
                         <p class="sc-appbar__item__icon material-icons">account_box</p>
-                        <p class="sc-appbar__item__text">{{ __('def.directory') }}</p>
+                        <p class="sc-appbar__item__label">{{ __('def.directory') }}</p>
                     </a>
                 </div>
 

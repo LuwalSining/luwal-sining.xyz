@@ -10,15 +10,15 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
-        "resolve-url-loader": "^4.0.0",
-        "sass": "^1.37.5",
-        "sass-loader": "^12.1.0"
+        "axios": "0.21",
+        "laravel-mix": "6.0.25",
+        "lodash": "4.17.21",
+        "postcss": "8.3.5",
+        "resolve-url-loader": "4.0.0",
+        "sass": "1.37.5",
+        "sass-loader": "12.1.0"
     },
     "dependencies": {
-        "@growstocks/stack": "^2.1.1"
+        "@growstocks/stack": "^3.0.2"
     }
 }

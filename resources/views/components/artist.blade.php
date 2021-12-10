@@ -3,7 +3,7 @@
         <img src="{{ asset('img/pfp/' . $user->image) }}" alt="{{ $user->name }}'s profile image">
     </div>
     <div class="sc-profile__container">
-        <div class="wrap--text">
+        <div class="sc-profile__contents">
             <h2>{{ $user->name }}</h2>
             <p class="sc-profile__text">{{ $user->department }}</p>
             <div class="sc-profile__actions">
