@@ -16,9 +16,7 @@
         "postcss": "8.3.5",
         "resolve-url-loader": "4.0.0",
         "sass": "1.37.5",
-        "sass-loader": "12.1.0"
-    },
-    "dependencies": {
-        "@growstocks/stack": "^3.0.2"
+        "sass-loader": "12.1.0",
+        "@growstocks/stack": "3.0.2"
     }
 }
